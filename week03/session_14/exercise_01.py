@@ -106,12 +106,12 @@
 # print(f"Урт үгс: {long_words}")
 
 #18
-sentence = "Би програмчлалд суралцаж байна"
-space_count = 0
-for char in sentence:
-    if char == " ":
-        space_count = space_count + 1
-print(f"Зайны тоо: {space_count}")
+# sentence = "Би програмчлалд суралцаж байна"
+# space_count = 0
+# for char in sentence:
+#     if char == " ":
+#         space_count = space_count + 1
+# print(f"Зайны тоо: {space_count}")
 
 #19
 # text = "hello"
