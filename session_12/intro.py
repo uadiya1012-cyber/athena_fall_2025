@@ -1,5 +1,0 @@
-user_name = input('Give me your name: ')
-print (user_name)
-print (type(user_name))
-user_weigth = input("give me your weigth: ")
-print (type(user_weigth))
