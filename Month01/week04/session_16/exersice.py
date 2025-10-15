@@ -33,12 +33,11 @@
 
 #5
 # def calculate_fixed_area():
-#     print("")
-# length = 10
-# width = 5
-# calculate_fixed_area = length * width
-# print(f"Талбай нь {calculate_fixed_area} юм.")    
-
+#   length = 10
+#   width = 5
+#   calculate_fixed_area = length * width
+#   print(f"Талбай нь {calculate_fixed_area} юм.")    
+# calculate_fixed_area()
 #6
 # def show_menu():
 #     print("--- Манай цэс ---")
