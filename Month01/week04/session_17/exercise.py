@@ -209,7 +209,8 @@
 
 # check_password_strength("12345")
 # check_password_strength("abcdefghi")
-# check_password_strength("password123")
+# check_password_strength("python123")
+
 
 
 #23
