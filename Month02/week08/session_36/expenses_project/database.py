@@ -8,7 +8,7 @@ DB_CONFIG = {
     "password": ''
 }
 
-def get_db_connection():
+def get_connection():
     connection = None
     try:
         connection = psycopg2.connect(**DB_CONFIG)
