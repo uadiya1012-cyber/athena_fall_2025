@@ -1,10 +1,11 @@
-from database import get_db_connection
+from database import get_connection
+from database import Error
 
 def log_expense(item, cost):
 
-    conn = get_db_connection()
-    if conn is None:
-        return False
+    conn = get_connection()
+    # if conn is None:
+    #     return False
     
     try:
         cur = conn.cursor()
@@ -15,21 +16,21 @@ def log_expense(item, cost):
         conn.commit()
         
         print("Зардал бүртгэгдлээ!")
-        return True
+        # return True
         
-    except Exception as e:
+    except Error as e:
         print(f"Алдаа: {e}")
         conn.rollback()
-        return False
+        # return False
         
-    finally:
-        if conn:
-            cur.close()
-            conn.close()
+    # finally:
+    #     if conn:
+    #         cur.close()
+    #         conn.close()
 
 def view_all_expenses():
 
-    conn = get_db_connection()
+    conn = get_connection()
     if conn is None:
         return
     
@@ -58,7 +59,7 @@ def view_all_expenses():
         print("="*60)
         print(f"Нийт: {len(expenses)} зардал")
         
-    except Exception as e:
+    except Error as e:
         print(f"Алдаа: {e}")
         
     finally:
@@ -100,8 +101,8 @@ def main():
                     
                 log_expense(item, cost)
                 
-            except ValueError:
-                print("❌ Алдаа: Үнийн дүн зөвхөн тоо байх ёстой!")
+            except Error:
+                print("Алдаа: Үнийн дүн зөвхөн тоо байх ёстой!")
                 
         elif choice == "2":
             print("\n==БҮХ ЗАРДЛЫГ ХАРАХ==")
