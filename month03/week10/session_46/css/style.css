@@ -1,0 +1,14 @@
+.my-p {
+    color: crimson;
+    text-decoration: overline;
+}
+
+#my-heading {
+    text-align: center;
+    background-color: deeppink;
+    color: white;
+}
+body {
+    background-color: aquamarine;
+}
+

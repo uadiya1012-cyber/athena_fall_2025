@@ -1,0 +1,151 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.container {
+    background-color: #fff;
+    border: 2px solid #333;
+    padding: 10px;
+    margin-bottom: 20px;
+    /* Оюутнууд энд Grid кодоо бичнэ */
+}
+
+.item {
+    background-color: #ffcc00;
+    border: 2px solid #333;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-1 {
+    background-color: #ff9999;
+}
+
+/* Улаан */
+.item-2 {
+    background-color: #99ff99;
+}
+
+/* Ногоон */
+.item-3 {
+    background-color: #9999ff;
+}
+
+/* Цэнхэр */
+.item-4 {
+    background-color: #ffff99;
+}
+
+/* Шар */
+.item-5 {
+    background-color: #ffcc99;
+}
+
+/* Улбар шар */
+.item-6 {
+    background-color: #99ccff;
+}
+
+/* Цэнхэр */
+
+/* --- ОЮУТНЫ КОД БИЧИХ ХЭСЭГ --- */
+.exercise-1 {
+    /* Дасгал 1-ийн код */
+    /* display: grid;
+    grid-template-columns: 100px 100px 100px; */
+
+    /* Дасгал 2-ийн код  */
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-template-columns: repeat(3, 1fr); */
+
+    /* Дасгал 3 */
+    /* display: grid;
+    grid-template-columns: 100px 2fr 1fr; */
+
+    /* Дасгал 4 */
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; */
+
+    /* Дасгал 5 */
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr); */
+
+    /* Дасгал 6 */
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr); */
+
+    /* Дасгал 7 */
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px); */
+
+    /* Дасгал 8 */
+    /* display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-rows: auto auto auto;
+    gap: 10px; */
+
+    /* Дасгал 9 */
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    justify-items: center;
+    align-items: center; */
+
+    /* Дасгал 10 */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+}
+
+
+/* .exercise-1 .item-1 {
+    Дасгал 5
+    grid-column: span 2;
+
+    Дасгал 6
+    grid-row: span 2;
+} */
+
+/* Дасгал 7 */
+/* .exercise-1 .item-2 {
+    grid-column: 3;
+    grid-row: 2;
+} */
+
+
+/* Дасгал 8 */
+
+/* .item-1 {
+    grid-area: header;
+}
+
+.item-2 {
+    grid-area: sidebar;
+}
+
+.item-3 {
+    grid-area: main;
+}
+
+.item-4 {
+    grid-area: footer;
+}
+
+.item-5,
+.item-6 {
+    display: none;
+} */

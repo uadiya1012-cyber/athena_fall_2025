@@ -1,0 +1,376 @@
+/* Exercise 1: Font Weight */
+.bold-text {
+    font-weight: bold;
+}
+
+.normal-text {
+    font-weight: normal;
+}
+
+.lighter-text {
+    font-weight: lighter;
+}
+
+.weight-100 {
+    font-weight: 100;
+}
+
+.weight-900 {
+    font-weight: 900;
+}
+
+/* Exercise 2: Font Style */
+.author-italic {
+    font-style: italic;
+}
+
+.normal-style {
+    font-style: normal;
+}
+
+.oblique-style {
+    font-style: oblique;
+}
+
+/* Exercise 3: Text Transform */
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+/* Exercise 4: Font Stretch */
+.condensed {
+    font-stretch: condensed;
+}
+
+.expanded {
+    font-stretch: expanded;
+}
+
+.regular-stretch {
+    font-stretch: normal;
+}
+
+.extended {
+    font-stretch: extra-expanded;
+}
+
+/* Exercise 5: Font Families */
+.monospace {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.serif {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.fantasy {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* Exercise 6: Font Size */
+.todos-px li {
+    font-size: 16px;
+}
+
+.todos-em li {
+    font-size: 1em;
+}
+
+.todos-percent li {
+    font-size: 100%;
+}
+
+/* Exercise 7: Text Decoration */
+.underline {
+    text-decoration: underline;
+}
+
+.overline {
+    text-decoration: overline;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.multiple {
+    text-decoration: underline overline;
+}
+
+.wavy {
+    text-decoration: underline wavy;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+/* Exercise 8: Font Families */
+.times-new-roman {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.arial {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.courier-new {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Exercise 9: Line Height */
+.line-height-em li {
+    line-height: 1.5em;
+}
+
+.line-height-px li {
+    line-height: 24px;
+}
+
+.line-height-percent li {
+    line-height: 150%;
+}
+
+.line-height-space p {
+    line-height: 2;
+}
+
+/* Exercise 10: Letter Spacing */
+.letter-spacing-wide {
+    letter-spacing: 5px;
+}
+
+.letter-spacing-narrow {
+    letter-spacing: -1px;
+}
+
+/* Exercise 11: Word Spacing */
+.word-spacing-wide {
+    word-spacing: 10px;
+}
+
+.word-spacing-narrow {
+    word-spacing: -2px;
+}
+
+/* Exercise 12: Text Align */
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-align-justify {
+    text-align: justify;
+}
+
+/* Exercise 13: Vertical Align */
+.vertical-align-middle img {
+    vertical-align: middle;
+}
+
+.vertical-align-top img {
+    vertical-align: top;
+}
+
+.vertical-align-bottom img {
+    vertical-align: bottom;
+}
+
+/* Exercise 14: Text Indent */
+.text-indent-1 {
+    text-indent: 20px;
+}
+
+.text-indent-2 {
+    text-indent: 2em;
+}
+
+/* Exercise 15: Text Shadow */
+.shadow-1 {
+    text-shadow: 2px 2px black;
+}
+
+.shadow-2 {
+    text-shadow: 2px 2px 5px red;
+}
+
+.shadow-3 {
+    text-shadow: -2px -2px 5px #eb4034;
+}
+
+.shadow-4 {
+    text-shadow: -2px 2px 5px #397180;
+}
+
+.shadow-5 {
+    text-shadow: -2px -2px 5px #398055;
+}
+
+.shadow-6 {
+    text-shadow: 2px 2px 5px black, -2px -2px 5px #398055;
+}
+
+.shadow-custom {
+    text-shadow: 3px 3px 2px purple, -1px -1px 2px orange;
+}
+
+/* Exercise 16: Pseudo Elements */
+.first-letter-200::first-letter {
+    font-size: 200%;
+}
+
+.first-letter-uppercase::first-letter {
+    text-transform: uppercase;
+}
+
+.first-letter-lowercase::first-letter {
+    text-transform: lowercase;
+}
+
+.first-letter-width::first-letter {
+    font-weight: bold;
+}
+
+.first-letter-color::first-letter {
+    color: red;
+}
+
+.first-letter-complex::first-letter {
+    font-weight: bold;
+    color: blue;
+    text-decoration: underline;
+}
+
+.first-line::first-line {
+    font-weight: bold;
+    color: darkblue;
+}
+
+/* Exercise 17: Pseudo Classes */
+.unvisited:link {
+    color: deeppink;
+}
+
+.visited:visited {
+    color: green;
+}
+
+.hover-link:hover {
+    color: orange;
+    text-decoration: underline;
+}
+
+.hover-effect:hover {
+    background-color: yellow;
+    font-size: 1.2em;
+    border: 1px dotted black;
+}
+
+.active-link:active {
+    color: red;
+    text-decoration: underline;
+}
+
+.submit-btn:focus {
+    background-color: green;
+    color: black;
+    border: 7px solid;
+}
+
+/* Exercise 18: Active State */
+.click-me {
+    color: #666;
+    background-color: red;
+    border-radius: 50%;
+    border: 1px dotted black;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.click-me:active {
+    color: white;
+    background-color: #ff8c00;
+    border-radius: 50%;
+    border: 1px solid blue;
+}
+
+/* Exercise 19: Text Transform & Decoration */
+.capitalize-text {
+    text-transform: capitalize;
+}
+
+.lowercase-text {
+    text-transform: lowercase;
+}
+
+.uppercase-text {
+    text-transform: uppercase;
+}
+
+.lorem-ipsum {
+    font-style: italic;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.underline-link {
+    text-decoration: underline;
+}
+
+.line-through-link {
+    text-decoration: line-through;
+}
+
+.overline-link {
+    text-decoration: overline;
+}
+
+.underline-overline-link {
+    text-decoration: underline overline;
+}
+
+/* Exercise 20: Intro, Breed and Credits */
+
+.Briads {
+    color: rgb(67, 185, 185);
+}
+
+.Heart {
+    color: rgb(118, 118, 225);
+}
+
+.intro {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.breed {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.History {
+    color: #397180;
+}
+
+.credits {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: right;
+}

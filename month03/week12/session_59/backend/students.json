@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Бат",
+    "score": 85,
+    "passed": true
+  },
+  {
+    "name": "Дорж",
+    "score": 45,
+    "passed": false
+  },
+  {
+    "name": "Оюун",
+    "score": 92,
+    "passed": true
+  },
+  {
+    "name": "Сараа",
+    "score": 78,
+    "passed": true
+  }
+]

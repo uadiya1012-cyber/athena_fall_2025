@@ -1,0 +1,59 @@
+/* ----------- Үндсэн Стиль ----------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    padding: 40px;
+}
+
+.bento-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 тэнцүү багана */
+    grid-auto-rows: minmax(150px, auto);
+    /* Мөрийн өндөр */
+    gap: 20px;
+}
+
+.box {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ----------- Байршлын Тохиргоо (Puzzle) ----------- */
+
+/* 1. Профайл — Том дөрвөлжин */
+.profile {
+    grid-column: span 2;
+    /* 2 багана өргөн */
+    grid-row: span 2;
+    /* 2 мөр өндөр */
+}
+
+/* 2. Skills — Өндөр гонзгой */
+.skills {
+    grid-column: 3;
+    /* Баруун талын багана */
+    grid-row: span 2;
+    /* 2 мөр өндөр */
+}
+
+/* 3. Project — Өргөн гонзгой */
+.project {
+    grid-column: span 2;
+    /* 2 багана */
+    /* grid-row автоматаар дараагийн мөрт орно */
+}
+
+/* 4. Social, Contact — Автоматаар байрлана */
+/* .social {}
+
+.contact {} */

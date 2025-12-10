@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.box-1 {
+    width: 300px;
+    height: 300px;
+    background-color: lightgreen;
+    border: 3px solid black;
+    padding: 30px;
+    margin: 50px;
+    margin: 20px auto;
+}
+
+.box-2 {
+    width: 400px;
+    height: 200px;
+    background-color: lightgoldenrodyellow;
+    border: 5px dotted blue;
+    padding: 20px 50px;
+    text-align: justify;
+    margin: 20px 50px 80px 100px;
+    border-radius: 50px 10px 50px 40px;
+}

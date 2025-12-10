@@ -1,0 +1,25 @@
+.container {
+    width: 600px;
+    background: #eee;
+    border: 2px solid #ccc;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    float: left;
+    border-radius: 50%;
+}
+
+.info {
+    margin-top: 20px;
+}
+
+.avatar2 {
+    width: 100px;
+    height: 100px;
+    float: right;
+    border-radius: 50%;
+}

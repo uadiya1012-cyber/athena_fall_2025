@@ -1,0 +1,30 @@
+body {
+    color: #333;
+    font-family: Merriweather, serif;
+    line-height: 1.6;
+}
+
+#recipe-title {
+    color: #8B0000;
+    font-family: 'Playfair Displey', serif;
+    font-size: 36px;
+    text-align: center;
+}
+
+.description {
+    font-size: italic;
+    color: #555;
+}
+
+.subtitle {
+    color: #2E8B57;
+    font-weight: bold;
+}
+
+.ingredients-list {
+    padding-left: 20px;
+}
+
+.instructions-list {
+    padding-left: 20px;
+}

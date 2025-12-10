@@ -1,0 +1,35 @@
+ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    list-style-type: none;
+    background-color: #454d62;
+    color: #ffffff;
+    height: 37px;
+}
+
+ul li {
+    display: inline;
+    border-left: 1px solid #545b6e;
+    border-right: #393f50;
+    height: 38px;
+    line-height: 37px;
+    padding: 0 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+ul li:nth-child(1) {
+    margin-left: 20%;
+}
+
+.image-gallery {
+    background-color: blueviolet;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.image-gallery img {
+    max-width: 200px;
+    height: 300px;
+    display: block;
+}
