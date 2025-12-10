@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>JS DOM</h1>
+    <main>
+        <section>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, recusandae natus animi repellat, non eos
+            quasi quas possimus voluptatem voluptatum temporibus libero tempora rem itaque nesciunt impedit tempore
+            aperiam laboriosam, corrupti quia nulla saepe. Hic, temporibus labore saepe, repellat laudantium ipsam, sunt
+            iste magni quidem dolorem accusantium quos delectus quaerat.
+        </section>
+        <p>
+            DOM Tutorial
+        </p>
+    </main>
+
+    <script>
+        // document object model
+        const a = 5;
+        console.log(a);
+        document.querySelector('h1').textContent = 'New Title';
+        document.body.style.backgroundColor = 'Lightblue';
+        console.log(document);
+        const sectionElement = document.querySelector('section');
+        console.log(sectionElement);
+        console.log('Parent Element of section is ${sectionElement.parentElement.tagName}');
+        // body - гийн хүүхдүүдийг нь хэвлэж харуулна уу
+        const body = document.body;
+        console.log(body.children);
+        console.log(body.firstElementChild);
+        console.log(body.lastElementChild);
+        console.log(body.firstElementChild.nextElementSibling);
+        console.log(body.lastElementChild.previousElementSibling);
+        // p
+        const p = document.querySelector('p');
+        console.log(p.firstChild);
+        console.log(p.firstChild.nodeType);
+        console.log(p.firstChild.textContent);
+        // window vs document object
+        console.log(window);
+        window.alert('Hello');
+        window.confirm('Do you want to eat doner?');
+        const myName = window.prompt('What is your name?');
+        console.log(myName);
+    </script>
+</body>
+
+</html>

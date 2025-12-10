@@ -1,0 +1,13 @@
+* {
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+
+main {
+    max-width: 840px;
+    background-color: orange;
+    color: white;
+    margin: 0 auto;
+    padding: 20px;
+}
