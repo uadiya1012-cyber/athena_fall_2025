@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "Alex-Brush";
+    src: url(../fonts/AlexBrush-Regular.ttf);
+}
+
+
+.mono {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    font-style: italic;
+    font-weight: 600;
+    text-align: justify;
+    text-indent: 30px;
+}
+
+.sans-serif {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    font-style: bold;
+    font-weight: 100;
+    word-spacing: 2px;
+    text-align: left;
+    text-indent: 20px;
+}
+
+.roboto {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-align: center;
+    text-shadow: 10px 10px 10px rgb(0, 255, 115);
+}
+
+section a {
+    font-size: 30px;
+    text-decoration: none;
+    color: violet;
+}
+
+section a:hover {
+    color: yellow;
+}
+
+section ul li::first-letter {
+    font-size: 3em;
+}
+
+.japanese {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.import-font {
+    font-family: "Alex-Brush";
+}
+

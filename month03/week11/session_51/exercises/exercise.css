@@ -1,0 +1,99 @@
+/* Exercise 1 */
+
+.news-card {
+    width: 400px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    overflow: hidden;
+    /* float асуудлыг засна */
+    background: #fff;
+    border-radius: 6px;
+}
+
+/* Зураг */
+.news-card img {
+    width: 100px;
+    height: 100px;
+    float: left;
+    /* Зүүн талд цуглана */
+    margin-right: 15px;
+    /* Зураг–текст хоорондын зай */
+    border-radius: 4px;
+}
+
+/* Текст */
+.news-content h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.news-content p {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Exercise 2 */
+
+/* 3 баганатай контейнер */
+.three-cols {
+    width: 100%;
+    overflow: hidden;
+    /* float бүрэн харагдах */
+}
+
+/* Нэг баганын зарчим */
+.col {
+    float: left;
+    width: 33.33%;
+    height: 120px;
+    padding: 15px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+
+    /* Layout эвдрэхээс хамгаалах дүрэм */
+    box-sizing: border-box;
+}
+
+/* Өөр өөр өнгө */
+.c1 {
+    background: #4a90e2;
+}
+
+.c2 {
+    background: #f5a623;
+}
+
+.c3 {
+    background: #7ed321;
+}
+
+/* Exercise 3 */
+
+.sidebar {
+    float: left;
+    width: 30%;
+    height: 200px;
+    background: pink;
+}
+
+.content {
+    float: left;
+    width: 70%;
+    height: 200px;
+    background: lightblue;
+}
+
+.footer {
+    background: black;
+    color: white;
+    padding: 20px;
+}
+
+.wrapper::after {
+    content: "";
+    display: block;
+    clear: both;
+}

@@ -1,0 +1,108 @@
+.exer1 {
+    background-color: blue;
+    width: 300px;
+    height: 200px;
+}
+
+.exer2 {
+    background-color: aquamarine;
+    width: 500px;
+    height: 300px;
+}
+
+.exer3 {
+    background-color: aquamarine;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.exer4 {
+    background-color: aquamarine;
+    width: 500px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.exer5 {
+    background-color: aquamarine;
+    width: 500px;
+    height: 300px;
+    border: 1 solid aquamarine;
+    overflow-y: scroll;
+}
+
+.scroll1 {
+    background-color: pink;
+    width: 200px;
+    height: 200px;
+    overflow-y: scroll;
+    margin-left: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.scroll2 {
+    background-color: yellow;
+    width: 200px;
+    height: 200px;
+    overflow-y: scroll;
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.exer6 {
+    display: flex;
+}
+
+.col {
+    width: 33.3333%;
+    padding: 20px;
+    border: 2px solid aqua;
+    background-color: aqua;
+    text-align: center;
+    font-size: 20px;
+}
+
+.exer7 {
+    background-color: #a3d5ff;
+    padding: 20px;
+    border: 2px solid #333;
+    max-width: 400px;
+    min-width: 200px;
+    width: 100%;
+}
+
+.exer8 {
+    background-color: #ffd9a3;
+    border: 2px solid #333;
+    padding: 15px;
+    min-height: 100px;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.exer9 {
+    width: 300px;
+    border: 2px solid #333;
+    padding: 10px;
+    background-color: #f3f3f3;
+}
+
+.exer9 img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.exer10 {
+    background-color: aqua;
+    max-width: 300px;
+    padding: 10px;
+    border: 2px solid #333;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}

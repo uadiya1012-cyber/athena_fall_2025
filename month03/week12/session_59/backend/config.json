@@ -1,0 +1,14 @@
+{
+  "app_name": "Миний Апп",
+  "version": "1.0.0",
+  "settings": {
+    "theme": "dark",
+    "language": "mn",
+    "notifications": true
+  },
+  "allowed_users": [
+    "admin",
+    "user1",
+    "user2"
+  ]
+}

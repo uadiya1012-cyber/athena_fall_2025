@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(242, 246, 231);
+    margin: 0;
+    padding: 0;
+
+}
+
+header {
+    padding: 20px;
+}
+
+footer {
+    padding: 20px;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+
+}

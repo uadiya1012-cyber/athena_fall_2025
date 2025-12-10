@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.page {
+    display: grid;
+    min-height: 100vh;
+    gap: 1rem;
+    padding: 1rem;
+
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto 1fr auto;
+
+    grid-template-areas:
+        "h h h h h h h h h h h h"
+        "s m m m m m m m m m a a"
+        "f f f f f f f f f f f f";
+}
+
+header {
+    grid-area: h;
+    background-color: #2c3e50;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+aside {
+    grid-area: s;
+    background: #e74c3c;
+    padding: 1rem;
+}
+
+main {
+    grid-area: m;
+    background: #ecf0f1;
+    padding: 2rem;
+}
+
+.ad {
+    grid-area: a;
+    background: #f1c40f;
+}
+
+footer {
+    grid-area: f;
+    background: #34495e;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+
+/* Tablet device screen */
+@media (max-width: 900px) {
+    .page {
+        grid-template-areas:
+            "h h h h h h h h h h h h"
+            "m m m m m m m m m m m m"
+            "s s s s s s s s s s s s"
+            "f f f f f f f f f f f f";
+    }
+}
+
+
+/* Mobile device screen */
+@media (max-width: 600px) {
+    .page {
+        grid-template-areas:
+            "h"
+            "m"
+            "s"
+            "a"
+            "f";
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,27 @@
+.section01 div {
+    background-color: red;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+
+}
+
+.section02 div {
+    background-color: blue;
+    height: 250px;
+}
+
+.section03 .rad {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: blue;
+    margin: 0 auto;
+}
+
+.section03 .rad .rad1 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: red;
+}

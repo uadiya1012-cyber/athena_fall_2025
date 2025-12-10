@@ -1,0 +1,67 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    background-color: #f0f2f5;
+}
+
+.container {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    min-height: 150px;
+    /* Босоо байршлыг харахад хэрэгтэй */
+}
+
+.box {
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 5px;
+    border-radius: 4px;
+}
+
+.box-2 {
+    background-color: #28a745;
+}
+
+.box-3 {
+    background-color: #dc3545;
+}
+
+/* --- ОЮУТНЫ КОД БИЧИХ ХЭСЭГ --- */
+/* Доорх хэсэгт дасгалуудаа хийнэ үү */
+
+.exercise-1 {
+    /* Дасгал 1-ийн код */
+    display: flex;
+    /* justify-content: end; */
+    /* justify-content: space-between; */
+    /* justify-content: flex-start; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* flex-wrap: wrap; */
+
+}
+
+
+.container1 {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    padding: 10px 20px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -1,0 +1,125 @@
+/* --- Үндсэн тохиргоо --- */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+/* --- GRID CONTAINER --- */
+.bento-grid {
+    display: grid;
+    /* 4 тэнцүү багана үүсгэнэ */
+    grid-template-columns: repeat(4, 1fr);
+    /* Мөрний өндрийг автоматаар тохируулна, гэхдээ хамгийн багадаа 150px */
+    grid-auto-rows: minmax(150px, auto);
+    /* Хайрцаг хоорондын зай */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* --- GRID ITEMS (Хайрцагнууд) --- */
+.card {
+    background-color: #fff;
+    border-radius: 20px;
+    /* Bento загварын гол шинж: дугуйрсан булан */
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    /* Хайрцаг доторх агуулгыг голлуулахын тулд Flexbox ашиглана */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    /* Хулгана хүрэхэд үл ялиг дээшлэнэ */
+}
+
+/* --- SPANNING (Суналт - Энд л жинхэнэ ажил өрнөнө) --- */
+
+/* 1. Профайл: 2 багана, 2 мөр эзэлнэ (Том дөрвөлжин) */
+.profile {
+    grid-column: span 2;
+    grid-row: span 2;
+    background-color: #e3f2fd;
+    /* Цайвар цэнхэр */
+}
+
+.profile img {
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* 2. Ур чадвар: 1 багана, 2 мөр эзэлнэ (Өндөр гонзгой) */
+.skills {
+    grid-column: span 1;
+    grid-row: span 2;
+    background-color: #fff3e0;
+    /* Цайвар шар */
+    align-items: flex-start;
+    /* Жагсаалтыг зүүн тийш шахах */
+}
+
+.skills ul {
+    padding-left: 20px;
+    text-align: left;
+}
+
+/* 3. Сошиал: Жижиг (1x1) хэвээрээ байна */
+.social-1 {
+    background-color: #1877f2;
+    color: white;
+}
+
+/* FB Blue */
+.social-2 {
+    background-color: #e1306c;
+    color: white;
+}
+
+/* Insta Pink */
+
+/* 4. Төсөл: 2 багана эзэлнэ (Хэвтээ гонзгой) */
+.project-1 {
+    grid-column: span 2;
+    background-color: #e8f5e9;
+    /* Цайвар ногоон */
+}
+
+/* 5. Байршил: Үлдсэн зайнд автоматаар орно (1x1) */
+.location {
+    background-color: #f3e5f5;
+    /* Цайвар ягаан */
+}
+
+/* --- RESPONSIVE (Гар утас) --- */
+@media (max-width: 600px) {
+    .bento-grid {
+        /* Утас дээр ганцхан баганатай болно */
+        grid-template-columns: 1fr;
+    }
+
+    /* Утас дээр бүх суналтыг цуцална */
+    .profile,
+    .skills,
+    .project-1 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}

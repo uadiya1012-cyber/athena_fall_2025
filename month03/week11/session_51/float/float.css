@@ -1,0 +1,35 @@
+.article .float-img {
+    float: left;
+    margin-right: 15px;
+    width: 150px;
+    height: 150px;
+}
+
+.sidebar {
+    float: left;
+    width: 30%;
+    background-color: #ffcccc;
+}
+
+.main {
+    float: left;
+    width: 70%;
+    background-color: #ccffcc;
+}
+
+.container {
+    border: 5px solid red;
+}
+
+.box {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: blue;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
