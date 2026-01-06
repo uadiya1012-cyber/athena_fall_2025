@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Practice Day</title>
+    <link rel="stylesheet" href="./css/exercises.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="page-title">DOM Practice Day</h1>
+        <p id="page-description">Өнөөдөр бид DOM Manipulation практик хийнэ!</p>
+
+        <!-- Exercise 1: Content Manipulation -->
+        <div class="section" id="exercise-1">
+            <h2>Exercise 1: Content Manipulation</h2>
+            <div id="content-box">
+                <p id="message">Энэ текстийг өөрчил!</p>
+                <div id="output-area">Output энд харагдана</div>
+            </div>
+            <input type="text" id="text-input" class="input-field" placeholder="Текст оруулна уу">
+            <div id="button-area">
+                <!-- Buttons will be added here -->
+            </div>
+        </div>
+
+        <!-- Exercise 2: Style Manipulation -->
+        <div class="section" id="exercise-2">
+            <h2>Exercise 2: Style Manipulation</h2>
+            <div id="style-box" style="padding: 20px; text-align: center;">
+                <p id="styled-text">Энэ текстийн style-ийг өөрчил!</p>
+            </div>
+            <div id="style-controls">
+                <!-- Style controls will be added here -->
+            </div>
+        </div>
+
+        <!-- Exercise 3: Task List -->
+        <div class="section" id="exercise-3">
+            <h2>Exercise 3: Dynamic Task List</h2>
+            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <input type="text" id="task-input" class="input-field" placeholder="Шинэ task оруулна уу"
+                    style="flex: 1; margin: 0;">
+                <button id="add-task-btn" class="btn btn-primary">Нэмэх</button>
+            </div>
+            <ul id="task-list" class="task-list">
+                <!-- Tasks will be added here -->
+            </ul>
+            <div id="task-stats">
+                <span id="total-tasks">Нийт: 0</span> |
+                <span id="completed-tasks">Дууссан: 0</span>
+            </div>
+        </div>
+
+        <!-- Exercise 4: Card Builder -->
+        <div class="section" id="exercise-4">
+            <h2>Exercise 4: Card Builder</h2>
+            <div style="display: grid; gap: 10px; margin-bottom: 15px;">
+                <input type="text" id="card-title" class="input-field" placeholder="Card title">
+                <input type="text" id="card-description" class="input-field" placeholder="Card description">
+                <select id="card-color" class="input-field">
+                    <option value="#007bff">Blue</option>
+                    <option value="#28a745">Green</option>
+                    <option value="#dc3545">Red</option>
+                    <option value="#ffc107">Yellow</option>
+                </select>
+                <button id="create-card-btn" class="btn btn-success">Card үүсгэх</button>
+            </div>
+            <div id="card-container">
+                <!-- Cards will be added here -->
+            </div>
+        </div>
+
+        <!-- Exercise 5: Theme Toggle -->
+        <div class="section" id="exercise-5">
+            <h2>Exercise 5: Theme Toggle</h2>
+            <button id="theme-toggle-btn" class="btn btn-secondary">🌙 Dark Mode</button>
+        </div>
+    </div>
+
+    <script src="./js/practice.js"></script>
+</body>
+
+</html>

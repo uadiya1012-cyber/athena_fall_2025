@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.Page {
+    width: 1440px;
+    height: 1080px;
+    background: #F7F7F7;
+}
+
+header {
+    width: 100%;
+    height: 86px;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header p {
+    font-family: 'Moul';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+    gap: 58px;
+}
+
+header ul li {
+    list-style: none;
+    font-family: 'Lato';
+    color: #212121;
+    font-weight: 600;
+    font-style: 'SemiBold';
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+header div a {
+    text-decoration-line: underline;
+    font-size: 20px;
+    font-family: 'Lato';
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+header div button {
+    font-family: 'Lato';
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    width: 140px;
+    height: 58px;
+    border-radius: 8px;
+    background-color: #4BAB66;
+}
+
+
+.container {
+    width: 1220px;
+    margin: 0 auto;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+
+}
+
+main img {
+    width: 552px;
+    height: 598.18px;
+}
+
+.text {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.text h1 {
+    font-family: 'Lato';
+    font-size: 48px;
+    line-height: 65px;
+    letter-spacing: 0%;
+}
+
+.text p {
+    font-family: 'Lato';
+    font-style: medium;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0%;
+}
+
+.text div {
+    display: flex;
+    gap: 10px;
+}
+
+#button1 {
+    font-family: 'Lato';
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    width: 202px;
+    height: 58px;
+    background: #4BAB66;
+    border-radius: 8px;
+    border: none;
+}
+
+#button2 {
+    font-family: 'Lato';
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    width: 202px;
+    height: 58px;
+    background: #D8E392;
+    border-radius: 8px;
+    border: none;
+}

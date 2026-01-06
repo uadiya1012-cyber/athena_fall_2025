@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "athena-fullstack-adiya-a18cd",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Fundamentals Practice</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>⏰ Async Fundamentals</h1>
+
+        <!-- Exercise 1: Execution Order -->
+        <section class="section" id="section-1">
+            <h2>1. Execution Order Prediction</h2>
+            <p>Товч дарж console.log-уудын дарааллыг харна уу:</p>
+
+            <button class="btn btn-primary" id="ex1-btn">Run Code</button>
+            <button class="btn btn-secondary" id="ex1-clear">Clear</button>
+
+            <div class="output" id="output-1"></div>
+        </section>
+
+        <!-- Exercise 2: Delayed Message -->
+        <section class="section" id="section-2">
+            <h2>2. Delayed Message</h2>
+            <p>Мессеж оруулаад тодорхой хугацааны дараа харуулна:</p>
+
+            <div class="flex">
+                <input type="text" class="form-input" id="ex2-message" placeholder="Your message">
+                <input type="number" class="form-input" id="ex2-delay" placeholder="Delay (ms)" value="2000"
+                    style="width: 120px;">
+                <button class="btn btn-primary" id="ex2-btn">Send</button>
+            </div>
+
+            <div class="output" id="output-2"></div>
+        </section>
+
+        <!-- Exercise 3: Countdown Timer -->
+        <section class="section" id="section-3">
+            <h2>3. Countdown Timer</h2>
+
+            <div class="timer-display" id="timer-display">10</div>
+
+            <div class="flex text-center" style="justify-content: center;">
+                <input type="number" class="form-input" id="ex3-seconds" value="10" style="width: 80px;">
+                <button class="btn btn-primary" id="ex3-start">Start</button>
+                <button class="btn btn-danger" id="ex3-stop">Stop</button>
+                <button class="btn btn-secondary" id="ex3-reset">Reset</button>
+            </div>
+        </section>
+
+        <!-- Exercise 4: Progress Bar -->
+        <section class="section" id="section-4">
+            <h2>4. Progress Bar</h2>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <p class="text-center"><span id="progress-text">0</span>%</p>
+
+            <div class="flex text-center" style="justify-content: center;">
+                <button class="btn btn-primary" id="ex4-start">Start Progress</button>
+                <button class="btn btn-secondary" id="ex4-reset">Reset</button>
+            </div>
+        </section>
+
+        <!-- Exercise 5: Traffic Light -->
+        <section class="section" id="section-5">
+            <h2>5. Traffic Light Simulation</h2>
+
+            <div class="traffic-light" id="traffic-light">
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+                <div class="light green"></div>
+            </div>
+
+            <div class="flex text-center" style="justify-content: center;">
+                <button class="btn btn-primary" id="ex5-start">Start</button>
+                <button class="btn btn-danger" id="ex5-stop">Stop</button>
+            </div>
+        </section>
+
+        <!-- Exercise 6: Debounce -->
+        <section class="section" id="section-6">
+            <h2>6. Debounce (Search Input)</h2>
+            <p>Бичиж зогссоны 500ms дараа хайлт хийнэ:</p>
+
+            <input type="text" class="form-input" id="ex6-input" placeholder="Type to search..." style="width: 100%;">
+
+            <div class="output" id="output-6">
+                <div class="output-line">🔍 Type something...</div>
+            </div>
+        </section>
+
+        <!-- Exercise 7: Sequential Callbacks -->
+        <section class="section" id="section-7">
+            <h2>7. Sequential Callbacks</h2>
+            <p>Дараалсан async үйлдлүүд:</p>
+
+            <button class="btn btn-primary" id="ex7-btn">Run Sequence</button>
+            <div class="spinner" id="ex7-spinner"></div>
+
+            <div class="output" id="output-7"></div>
+        </section>
+
+        <!-- Exercise 8: Callback Pattern -->
+        <section class="section" id="section-8">
+            <h2>8. Error-First Callback</h2>
+            <p>Random-оор success эсвэл error:</p>
+
+            <button class="btn btn-primary" id="ex8-btn">Fetch Data</button>
+
+            <div class="output" id="output-8"></div>
+        </section>
+
+        <!-- Exercise 9: Multiple Timers -->
+        <section class="section" id="section-9">
+            <h2>9. Multiple Timers</h2>
+            <p>Олон setTimeout, setInterval хамт ажиллуулах:</p>
+
+            <button class="btn btn-primary" id="ex9-btn">Start All Timers</button>
+            <button class="btn btn-danger" id="ex9-stop">Stop All</button>
+
+            <div class="output" id="output-9"></div>
+        </section>
+
+        <!-- Exercise 10: Event Loop Quiz -->
+        <section class="section" id="section-10">
+            <h2>10. Event Loop Quiz</h2>
+            <p>Кодын үр дүнг таах:</p>
+
+            <pre style="background: #f1f5f9; padding: 15px; border-radius: 8px; overflow-x: auto;">
+console.log('A')
+setTimeout(() => console.log('B'), 0)
+console.log('C')
+setTimeout(() => console.log('D'), 100)
+console.log('E')
+            </pre>
+
+            <button class="btn btn-primary" id="ex10-btn">Show Answer</button>
+            <button class="btn btn-secondary" id="ex10-run">Run Code</button>
+
+            <div class="output" id="output-10"></div>
+        </section>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

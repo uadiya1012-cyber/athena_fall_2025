@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Flow & Delegation</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌊 Event Flow & Delegation</h1>
+
+        <!-- Section 1: Event Bubbling Demo -->
+        <section class="section" id="section-bubbling">
+            <h2>1. Event Bubbling Visualization</h2>
+            <p>Дотоод хайрцаг дээр дарж bubbling харна уу:</p>
+
+            <div class="bubble-demo outer-box" id="outer">
+                <div class="box-label">
+                    📦 Outer (grandparent)
+                    <span class="phase-badge">Level 1</span>
+                </div>
+
+                <div class="bubble-demo middle-box" id="middle">
+                    <div class="box-label">
+                        📦 Middle (parent)
+                        <span class="phase-badge">Level 2</span>
+                    </div>
+
+                    <div class="bubble-demo inner-box" id="inner">
+                        <div class="box-label">
+                            🎯 Inner (target)
+                            <span class="phase-badge">Level 3</span>
+                        </div>
+                        Click me!
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-2 mt-3">
+                <button class="btn btn-secondary" id="clear-bubbling">Clear Log</button>
+                <label>
+                    <input type="checkbox" id="enable-capture"> Enable Capture Phase
+                </label>
+            </div>
+
+            <div class="output" id="output-bubbling">
+                <div class="output-line">🌊 Click on any box to see event flow...</div>
+            </div>
+        </section>
+
+        <!-- Section 2: Stop Propagation -->
+        <section class="section" id="section-propagation">
+            <h2>2. Stop Propagation Demo</h2>
+            <p>Middle box дээр stopPropagation() дуудагдана:</p>
+
+            <div class="bubble-demo outer-box" id="stop-outer">
+                <div class="box-label">📦 Outer - Will receive event</div>
+
+                <div class="bubble-demo middle-box" id="stop-middle">
+                    <div class="box-label">🛑 Middle - Stops propagation here</div>
+
+                    <div class="bubble-demo inner-box" id="stop-inner">
+                        <div class="box-label">🎯 Inner - Click me!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="output" id="output-propagation">
+                <div class="output-line">🛑 Click inner box - propagation stops at middle...</div>
+            </div>
+        </section>
+
+        <!-- Section 3: Event Delegation Basic -->
+        <section class="section" id="section-delegation">
+            <h2>3. Event Delegation - Button List</h2>
+            <p>Нэг listener → олон button. Шинэ button нэмэхэд ч ажиллана:</p>
+
+            <div class="flex gap-2">
+                <button class="btn btn-primary" id="add-button-btn">+ Add Button</button>
+            </div>
+
+            <div class="flex gap-2 mt-3" id="button-container">
+                <button class="btn btn-secondary action-btn" data-id="1">Button 1</button>
+                <button class="btn btn-secondary action-btn" data-id="2">Button 2</button>
+                <button class="btn btn-secondary action-btn" data-id="3">Button 3</button>
+            </div>
+
+            <div class="output" id="output-delegation">
+                <div class="output-line">👆 Click any button (even new ones)...</div>
+            </div>
+        </section>
+
+        <!-- Section 4: Card List Delegation -->
+        <section class="section" id="section-cards">
+            <h2>4. Card List with Actions</h2>
+            <p>Edit, Delete товчнууд бүгд нэг listener ашиглана:</p>
+
+            <div class="card-list" id="card-list">
+                <div class="card-item" data-id="1">
+                    <div class="card-avatar">JD</div>
+                    <div class="card-info">
+                        <div class="card-name">John Doe</div>
+                        <div class="card-email">john@example.com</div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-sm btn-primary edit-btn">Edit</button>
+                        <button class="btn btn-sm btn-danger delete-btn">Delete</button>
+                    </div>
+                </div>
+                <div class="card-item" data-id="2">
+                    <div class="card-avatar">AS</div>
+                    <div class="card-info">
+                        <div class="card-name">Alice Smith</div>
+                        <div class="card-email">alice@example.com</div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-sm btn-primary edit-btn">Edit</button>
+                        <button class="btn btn-sm btn-danger delete-btn">Delete</button>
+                    </div>
+                </div>
+                <div class="card-item" data-id="3">
+                    <div class="card-avatar">BJ</div>
+                    <div class="card-info">
+                        <div class="card-name">Bob Johnson</div>
+                        <div class="card-email">bob@example.com</div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-sm btn-primary edit-btn">Edit</button>
+                        <button class="btn btn-sm btn-danger delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="output" id="output-cards">
+                <div class="output-line">👆 Click Edit or Delete on any card...</div>
+            </div>
+        </section>
+
+        <!-- Section 5: Todo with Delegation -->
+        <section class="section" id="section-todo">
+            <h2>5. Todo List with Delegation</h2>
+
+            <div class="flex gap-2">
+                <input type="text" class="form-input" id="todo-input" placeholder="Add new todo..." style="flex: 1;">
+                <button class="btn btn-primary" id="todo-add">Add</button>
+            </div>
+
+            <ul class="todo-list" id="todo-list">
+                <li class="todo-item" data-id="1">
+                    <input type="checkbox" class="todo-checkbox">
+                    <span class="todo-text">Learn event delegation</span>
+                    <span class="todo-delete">🗑️</span>
+                </li>
+                <li class="todo-item" data-id="2">
+                    <input type="checkbox" class="todo-checkbox">
+                    <span class="todo-text">Practice with exercises</span>
+                    <span class="todo-delete">🗑️</span>
+                </li>
+                <li class="todo-item completed" data-id="3">
+                    <input type="checkbox" class="todo-checkbox" checked>
+                    <span class="todo-text">Understand bubbling</span>
+                    <span class="todo-delete">🗑️</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 6: Tab Navigation -->
+        <section class="section" id="section-tabs">
+            <h2>6. Tab Navigation</h2>
+
+            <div class="tab-nav" id="tab-nav">
+                <button class="tab-btn active" data-tab="tab1">Overview</button>
+                <button class="tab-btn" data-tab="tab2">Features</button>
+                <button class="tab-btn" data-tab="tab3">Pricing</button>
+                <button class="tab-btn" data-tab="tab4">FAQ</button>
+            </div>
+
+            <div class="tab-content active" id="tab1">
+                <h3>Overview</h3>
+                <p>This is the overview content. Event delegation makes this tab system work efficiently.</p>
+            </div>
+            <div class="tab-content" id="tab2">
+                <h3>Features</h3>
+                <p>Feature list goes here. Only one listener handles all tab clicks!</p>
+            </div>
+            <div class="tab-content" id="tab3">
+                <h3>Pricing</h3>
+                <p>Pricing information. Dynamic and performant.</p>
+            </div>
+            <div class="tab-content" id="tab4">
+                <h3>FAQ</h3>
+                <p>Frequently asked questions. No matter how many tabs, one listener.</p>
+            </div>
+        </section>
+
+        <!-- Section 7: Dropdown Menu -->
+        <section class="section" id="section-dropdown">
+            <h2>7. Dropdown Menu</h2>
+            <p>Click outside to close (document-level delegation):</p>
+
+            <div class="dropdown-container" id="dropdown-container">
+                <button class="btn btn-primary" id="dropdown-toggle">
+                    Menu ▼
+                </button>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <div class="dropdown-item" data-action="profile">👤 Profile</div>
+                    <div class="dropdown-item" data-action="settings">⚙️ Settings</div>
+                    <div class="dropdown-item" data-action="notifications">🔔 Notifications</div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-item" data-action="logout">🚪 Logout</div>
+                </div>
+            </div>
+
+            <div class="output" id="output-dropdown">
+                <div class="output-line">📋 Click menu items or outside to close...</div>
+            </div>
+        </section>
+
+        <!-- Section 8: Data Table -->
+        <section class="section" id="section-table">
+            <h2>8. Data Table with Actions</h2>
+
+            <table class="data-table" id="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-id="101">
+                        <td>101</td>
+                        <td>Product A</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                        <td class="actions">
+                            <button class="btn btn-sm btn-secondary view-btn">View</button>
+                            <button class="btn btn-sm btn-primary edit-btn">Edit</button>
+                            <button class="btn btn-sm btn-danger delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                    <tr data-id="102">
+                        <td>102</td>
+                        <td>Product B</td>
+                        <td><span class="badge badge-blue">Pending</span></td>
+                        <td class="actions">
+                            <button class="btn btn-sm btn-secondary view-btn">View</button>
+                            <button class="btn btn-sm btn-primary edit-btn">Edit</button>
+                            <button class="btn btn-sm btn-danger delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                    <tr data-id="103">
+                        <td>103</td>
+                        <td>Product C</td>
+                        <td><span class="badge badge-red">Inactive</span></td>
+                        <td class="actions">
+                            <button class="btn btn-sm btn-secondary view-btn">View</button>
+                            <button class="btn btn-sm btn-primary edit-btn">Edit</button>
+                            <button class="btn btn-sm btn-danger delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="output" id="output-table">
+                <div class="output-line">📊 Click any action button in the table...</div>
+            </div>
+        </section>
+
+        <!-- Section 9: Accordion -->
+        <section class="section" id="section-accordion">
+            <h2>9. Accordion</h2>
+
+            <div class="accordion" id="accordion">
+                <div class="accordion-item" data-item="1">
+                    <div class="accordion-header">
+                        What is event delegation?
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Event delegation is a pattern where you add a single event listener to a parent element to
+                            handle events for all its children, even those added dynamically.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-item="2">
+                    <div class="accordion-header">
+                        Why use event delegation?
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            It improves performance by reducing the number of event listeners, and automatically works
+                            with dynamically added elements.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-item="3">
+                    <div class="accordion-header">
+                        When should I avoid delegation?
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Avoid delegation for events that don't bubble (focus, blur) or when you need very specific
+                            event handling that's easier to implement directly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Complex List -->
+        <section class="section" id="section-complex">
+            <h2>10. Complex Interactive List</h2>
+            <p>Select, favorite, delete - бүгд delegation:</p>
+
+            <div class="card-list" id="complex-list">
+                <!-- Items will be generated -->
+            </div>
+
+            <p class="text-muted mt-3">
+                Selected: <strong id="selected-count">0</strong> |
+                Favorites: <strong id="favorite-count">0</strong>
+            </p>
+        </section>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

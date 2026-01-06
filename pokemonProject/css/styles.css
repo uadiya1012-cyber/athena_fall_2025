@@ -1,0 +1,21 @@
+main {
+    max-width: 1440px;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.container {
+    width: 322px;
+    height: 260px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 11px 20px 0 rgba(145, 145, 145, 0.16);
+}
+
+.container img {
+    width: 180px;
+    height: 134px;
+}

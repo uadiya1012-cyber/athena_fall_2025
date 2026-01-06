@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+main {
+    max-width: 800px;
+    height: 100vh;
+    background-color: thistle;
+    color: white;
+    margin: 0 auto;
+}
+
+section {
+    max-width: 600px;
+    height: 600px;
+    background-color: aquamarine;
+    color: white;
+    margin: 0 auto;
+}

@@ -1,0 +1,87 @@
+<!-- example.html -->
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Creation Practice</title>
+    <link href="./css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>DOM Element Creation</h1>
+
+        <!-- Notification Container -->
+        <div id="notification-container"></div>
+
+        <!-- Todo Section -->
+        <section id="todo-section">
+            <h2>Todo List</h2>
+            <div class="card">
+                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <input type="text" class="form-input" id="todo-input" placeholder="Add new todo...">
+                    <button class="btn btn-primary" id="add-todo-btn">Add</button>
+                </div>
+                <ul class="list" id="todo-list">
+                    <li class="list-item todo-item" data-id="1">
+                        <input type="checkbox" class="todo-checkbox">
+                        <span class="todo-text">Learn JavaScript</span>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                    </li>
+                    <li class="list-item todo-item" data-id="2">
+                        <input type="checkbox" class="todo-checkbox">
+                        <span class="todo-text">Practice DOM manipulation</span>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Users Section -->
+        <section id="users-section">
+            <h2>Users</h2>
+            <div id="users-container" class="grid">
+                <!-- Users will be added here -->
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products-section">
+            <h2>Products</h2>
+            <div id="products-container" class="grid">
+                <!-- Products will be added here -->
+            </div>
+        </section>
+
+        <!-- Tags Section -->
+        <section id="tags-section">
+            <h2>Tags</h2>
+            <div class="card">
+                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <input type="text" class="form-input" id="tag-input" placeholder="Add tag...">
+                    <button class="btn btn-primary" id="add-tag-btn">Add Tag</button>
+                </div>
+                <div class="tags" id="tags-container">
+                    <span class="tag">JavaScript <span class="tag-remove">×</span></span>
+                    <span class="tag">HTML <span class="tag-remove">×</span></span>
+                    <span class="tag">CSS <span class="tag-remove">×</span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comments Section -->
+        <section id="comments-section">
+            <h2>Comments</h2>
+            <div id="comments-container">
+                <!-- Comments will be added here -->
+            </div>
+        </section>
+    </div>
+
+    <script src="./js/script.js">
+    </script>
+</body>
+
+</html>
