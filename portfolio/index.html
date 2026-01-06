@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Portfolio</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="nav container">
+
+            <!-- Logo -->
+            <a href="#" class="nav__logo">
+                <img src="./assets/images/logo.svg" alt="logo">
+                UADIYA
+            </a>
+
+            <!-- Menu -->
+            <ul class="nav__menu">
+                <li><a href="#home" class="nav__link">Home</a></li>
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#services" class="nav__link">Services</a></li>
+                <li><a href="#projects" class="nav__link">Portfolio</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+
+            <!-- CTA -->
+            <a href="#contact" class="btn btn--primary">
+                Hire Me
+            </a>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero" id="home">
+            <div class="hero__container container">
+
+                <!-- Left content -->
+                <div class="hero__content">
+                    <span class="hero__badge">Hello!</span>
+
+                    <h1 class="hero__title">
+                        I’m <span>Adiya</span>, <br />
+                        Fullstack Developer
+                    </h1>
+
+                    <p class="hero__text">
+                        Adiya’s Exceptional fullstackensure our website’s success.Highly Recommended
+                    </p>
+
+                    <div class="hero__actions">
+                        <a href="#projects" class="btn btn--primary">Portfolio</a>
+                        <a href="#contact" class="btn btn--outline">Hire Me</a>
+                    </div>
+                </div>
+
+                <!-- Right image -->
+                <div class="hero__image-wrapper">
+                    <div class="hero__shape"></div>
+                    <img src="./assets/images/profile.png" alt="Adiya portrait" />
+                </div>
+
+            </div>
+        </section>
+
+        <!-- My services -->
+        <section class="services" id="services">
+            <div class="services__container container">
+
+                <!-- Section header -->
+                <div class="section-header section-header--light">
+                    <h2 class="section-title">
+                        My <span>Services</span>
+                    </h2>
+                    <p class="section-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Duis lacus nunc, posuere in justo vulputate.
+                    </p>
+                </div>
+
+                <!-- Services list -->
+                <div class="services__list">
+
+                    <article class="service-card">
+                        <img src="./assets/images/service-uiux.png" alt="UI UX Design">
+                        <h3 class="service-card__title">UI / UX Design</h3>
+                        <button class="service-card__btn">↗</button>
+                    </article>
+
+                    <article class="service-card">
+                        <img src="./assets/images/service-web.png" alt="Web Design">
+                        <h3 class="service-card__title">Web Design</h3>
+                        <button class="service-card__btn">↗</button>
+                    </article>
+
+                    <article class="service-card">
+                        <img src="./assets/images/service-landing.png" alt="Landing Page">
+                        <h3 class="service-card__title">Landing Page</h3>
+                        <button class="service-card__btn">↗</button>
+                    </article>
+
+                </div>
+
+                <!-- servise slider -->
+                <div class="services__slider">
+
+                    <button class="slider-btn slider-btn--left">‹</button>
+
+                    <div class="services__track">
+
+                        <article class="service-card">...</article>
+                        <article class="service-card">...</article>
+                        <article class="service-card">...</article>
+                        <article class="service-card">...</article>
+
+                    </div>
+
+                    <button class="slider-btn slider-btn--right">›</button>
+
+                </div>
+
+
+            </div>
+
+            <!-- Decoration -->
+            <div class="services__bg"></div>
+        </section>
+
+
+        <section class="about" id="about">
+            <!-- about -->
+        </section>
+
+        <section class="projects" id="projects">
+            <!-- projects -->
+        </section>
+
+        <section class="contact" id="contact">
+            <!-- contact -->
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <!-- footer -->
+    </footer>
+    <script src="./js/services-slider.js"></script>
+</body>
+
+</html>

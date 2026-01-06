@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks & Timers Practice</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>⏱️ Callbacks & Timers Practice</h1>
+
+        <!-- Exercise 1: Countdown Timer -->
+        <section class="section" id="section-1">
+            <h2>1. Advanced Countdown Timer</h2>
+            <p class="description">Countdown timer with pause/resume functionality</p>
+
+            <div class="timer-display" id="timer-1">10</div>
+
+            <div class="flex flex-center">
+                <input type="number" class="form-input" id="timer-1-input" value="10" min="1" max="999"
+                    style="width: 100px;">
+                <button class="btn btn-primary" id="timer-1-start">▶ Start</button>
+                <button class="btn btn-secondary" id="timer-1-pause" disabled>⏸ Pause</button>
+                <button class="btn btn-danger" id="timer-1-reset">↺ Reset</button>
+            </div>
+
+            <div class="text-center mt-3">
+                <span class="status idle" id="timer-1-status">
+                    <span class="status-dot"></span>
+                    Idle
+                </span>
+            </div>
+        </section>
+
+        <!-- Exercise 2: Stopwatch -->
+        <section class="section" id="section-2">
+            <h2>2. Stopwatch with Laps</h2>
+            <p class="description">Stopwatch with lap recording</p>
+
+            <div class="stopwatch-display" id="stopwatch">00:00:00</div>
+
+            <div class="flex flex-center">
+                <button class="btn btn-success" id="stopwatch-start">▶ Start</button>
+                <button class="btn btn-primary" id="stopwatch-lap" disabled>🏁 Lap</button>
+                <button class="btn btn-danger" id="stopwatch-reset">↺ Reset</button>
+            </div>
+
+            <div class="lap-list" id="lap-list"></div>
+        </section>
+
+        <!-- Exercise 3: Auto-Save -->
+        <section class="section" id="section-3">
+            <h2>3. Auto-Save (Debounce)</h2>
+            <p class="description">Text editor with auto-save after 2 seconds of inactivity</p>
+
+            <textarea class="form-input" id="autosave-textarea"
+                placeholder="Start typing... (auto-saves after 2s of inactivity)"
+                style="width: 100%; height: 120px; resize: vertical;"></textarea>
+
+            <div class="flex" style="justify-content: space-between; align-items: center;">
+                <span id="autosave-status">📝 Ready to edit</span>
+                <span id="autosave-time"></span>
+            </div>
+
+            <div class="output" id="output-3">
+                <div class="output-line">💾 Save history will appear here...</div>
+            </div>
+        </section>
+
+        <!-- Exercise 4: Search Input -->
+        <section class="section" id="section-4">
+            <h2>4. Live Search (Debounce)</h2>
+            <p class="description">Search with debounced API calls</p>
+
+            <input type="text" class="form-input" id="search-input" placeholder="🔍 Search users..."
+                style="width: 100%;">
+
+            <div class="typing-indicator" id="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+
+            <div class="output" id="output-4">
+                <div class="output-line">Type to search...</div>
+            </div>
+        </section>
+
+        <!-- Exercise 5: Scroll Throttle -->
+        <section class="section" id="section-5">
+            <h2>5. Scroll Position (Throttle)</h2>
+            <p class="description">Scroll event throttling - check bottom right corner while scrolling</p>
+
+            <div style="height: 300px; overflow-y: auto; background: #f8fafc; border-radius: 8px; padding: 20px;"
+                id="scroll-container">
+                <div style="height: 1000px;">
+                    <p>Scroll down to see throttled position updates...</p>
+                    <p style="margin-top: 800px;">You're at the bottom!</p>
+                </div>
+            </div>
+
+            <div class="output" id="output-5">
+                <div class="output-line">Scroll events will be logged here...</div>
+            </div>
+        </section>
+
+        <!-- Exercise 6: Notification Queue -->
+        <section class="section" id="section-6">
+            <h2>6. Notification Queue</h2>
+            <p class="description">Sequential notifications with auto-dismiss</p>
+
+            <div class="flex flex-center">
+                <button class="btn btn-primary" id="notify-btn">Show Notification</button>
+                <button class="btn btn-secondary" id="notify-many-btn">Queue 3 Notifications</button>
+            </div>
+
+            <div class="output" id="output-6">
+                <div class="output-line">Notification log...</div>
+            </div>
+        </section>
+
+        <div class="notification" id="notification">
+            Notification message
+        </div>
+
+        <!-- Exercise 7: Progress Simulation -->
+        <section class="section" id="section-7">
+            <h2>7. File Upload Simulation</h2>
+            <p class="description">Simulated file upload with progress</p>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="upload-progress">0%</div>
+            </div>
+
+            <div class="flex flex-center">
+                <button class="btn btn-primary" id="upload-start">📤 Upload File</button>
+                <button class="btn btn-danger" id="upload-cancel" disabled>Cancel</button>
+            </div>
+
+            <div id="upload-status" class="text-center mt-3"></div>
+        </section>
+
+        <!-- Exercise 8: Slideshow -->
+        <section class="section" id="section-8">
+            <h2>8. Auto Slideshow</h2>
+            <p class="description">Auto-rotating slideshow with pause on hover</p>
+
+            <div class="slideshow" id="slideshow">
+                <div class="slide active">🌅 Slide 1</div>
+                <div class="slide">🌊 Slide 2</div>
+                <div class="slide">🏔️ Slide 3</div>
+                <div class="slide">🌳 Slide 4</div>
+            </div>
+
+            <div class="slide-indicators" id="slide-indicators">
+                <div class="slide-dot active" data-index="0"></div>
+                <div class="slide-dot" data-index="1"></div>
+                <div class="slide-dot" data-index="2"></div>
+                <div class="slide-dot" data-index="3"></div>
+            </div>
+
+            <div class="flex flex-center mt-3">
+                <button class="btn btn-secondary" id="slide-prev">◀ Prev</button>
+                <button class="btn btn-primary" id="slide-toggle">⏸ Pause</button>
+                <button class="btn btn-secondary" id="slide-next">Next ▶</button>
+            </div>
+        </section>
+
+        <!-- Exercise 9: Retry Pattern -->
+        <section class="section" id="section-9">
+            <h2>9. Retry Pattern</h2>
+            <p class="description">API call with automatic retry on failure</p>
+
+            <div class="flex flex-center">
+                <button class="btn btn-primary" id="retry-btn">Fetch Data (50% fail rate)</button>
+            </div>
+
+            <div class="output" id="output-9">
+                <div class="output-line">Click to fetch data with retry...</div>
+            </div>
+        </section>
+
+        <!-- Exercise 10: Polling -->
+        <section class="section" id="section-10">
+            <h2>10. API Polling</h2>
+            <p class="description">Periodic data fetching simulation</p>
+
+            <div class="counter-value" id="poll-data">--</div>
+
+            <div class="flex flex-center">
+                <button class="btn btn-success" id="poll-start">▶ Start Polling</button>
+                <button class="btn btn-danger" id="poll-stop" disabled>⏹ Stop</button>
+            </div>
+
+            <div class="text-center mt-3">
+                <span class="status idle" id="poll-status">
+                    <span class="status-dot"></span>
+                    Stopped
+                </span>
+            </div>
+
+            <div class="output" id="output-10">
+                <div class="output-line">Poll history...</div>
+            </div>
+        </section>
+    </div>
+
+    <div class="scroll-position" id="scroll-position">
+        Scroll: 0px
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

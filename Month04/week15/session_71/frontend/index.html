@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Fundamentals Practice</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎯 Event Fundamentals</h1>
+        <section>
+            <!-- Notification Container -->
+            <div class="notification-container" id="notification-container"></div>
+        </section>
+
+        <!-- Section 1: Basic Click -->
+        <section class="section" id="section-click">
+            <h2>1. Basic Click Events</h2>
+            <p>Товчнууд дээр дарж event-үүдийг туршаарай:</p>
+
+            <div class="flex gap-2 mt-3">
+                <button class="btn btn-primary" id="btn-click">Click Me</button>
+                <button class="btn btn-secondary" id="btn-count">Clicks: 0</button>
+                <button class="btn btn-danger" id="btn-reset">Reset</button>
+            </div>
+
+            <div class="output" id="output-click">
+                <div class="output-line">👆 Click any button to see events...</div>
+            </div>
+        </section>
+
+        <!-- Section 2: Double Click -->
+        <section class="section" id="section-dblclick">
+            <h2>2. Double Click</h2>
+            <p>Card дээр давхар дарж сонгоорой:</p>
+
+            <div class="card card-clickable" id="card-dblclick">
+                <strong>📦 Product Card</strong>
+                <p>Double-click to select this card</p>
+                <span class="status status-warning">
+                    <span class="status-dot"></span>
+                    Not selected
+                </span>
+            </div>
+        </section>
+
+        <!-- Section 3: Mouse Enter/Leave -->
+        <section class="section" id="section-hover">
+            <h2>3. Mouse Enter & Leave</h2>
+            <p>Хайрцаг дээгүүр хулгана аваачиж үзээрэй:</p>
+
+            <div class="event-box" id="hover-box">
+                Hover Me!
+            </div>
+
+            <div class="output" id="output-hover">
+                <div class="output-line">🖱️ Move mouse over the box...</div>
+            </div>
+        </section>
+
+        <!-- Section 4: Mouse Move Tracker -->
+        <section class="section" id="section-tracker">
+            <h2>4. Mouse Position Tracker</h2>
+            <p>Хайрцаг дотор хулгана хөдөлгөөрэй:</p>
+
+            <div class="tracker-box" id="tracker-box">
+                <div class="tracker-dot" id="tracker-dot"></div>
+                <div class="tracker-coords" id="tracker-coords">X: 0, Y: 0</div>
+            </div>
+        </section>
+
+        <!-- Section 5: Mouse Down/Up -->
+        <section class="section" id="section-mousedown">
+            <h2>5. Mouse Down & Up</h2>
+            <p>Товчийг дараад барьж, дараа нь суллаарай:</p>
+
+            <div class="flex-center mt-3">
+                <button class="btn btn-success" id="btn-hold" style="width: 150px;">
+                    Hold Me
+                </button>
+            </div>
+
+            <div class="output" id="output-hold">
+                <div class="output-line">👇 Press and hold the button...</div>
+            </div>
+        </section>
+
+        <!-- Section 6: Event Target -->
+        <section class="section" id="section-target">
+            <h2>6. Event Target vs CurrentTarget</h2>
+            <p>Parent болон child элементүүд дээр дараарай:</p>
+
+            <div class="card" id="parent-card" style="background: #dbeafe; padding: 30px;">
+                <p><strong>Parent Card</strong> (id: parent-card)</p>
+
+                <div class="card" id="child-card" style="background: #fef3c7; margin-top: 15px;">
+                    <p><strong>Child Card</strong> (id: child-card)</p>
+
+                    <button class="btn btn-primary" id="nested-btn">
+                        Nested Button
+                    </button>
+                </div>
+            </div>
+
+            <div class="output" id="output-target">
+                <div class="output-line">🎯 Click on different elements...</div>
+            </div>
+        </section>
+
+        <!-- Section 7: Prevent Default -->
+        <section class="section" id="section-prevent">
+            <h2>7. Prevent Default</h2>
+            <p>Link-үүд дээр дараарай:</p>
+
+            <div class="flex gap-2 mt-3">
+                <a href="https://google.com" class="btn btn-primary" id="link-normal">
+                    Normal Link (Google)
+                </a>
+                <a href="https://google.com" class="btn btn-secondary" id="link-prevented">
+                    Prevented Link
+                </a>
+            </div>
+
+            <div class="output" id="output-prevent">
+                <div class="output-line">🔗 Click the links to see behavior...</div>
+            </div>
+        </section>
+
+        <!-- Section 8: Counter App -->
+        <section class="section" id="section-counter">
+            <h2>8. Counter Application</h2>
+
+            <div class="counter-display" id="counter-value">0</div>
+
+            <div class="counter-controls">
+                <button class="btn btn-danger" id="counter-dec">➖ Decrease</button>
+                <button class="btn btn-secondary" id="counter-reset">Reset</button>
+                <button class="btn btn-success" id="counter-inc">➕ Increase</button>
+            </div>
+        </section>
+
+        <!-- Section 9: Toggle Switch -->
+        <section class="section" id="section-toggle">
+            <h2>Гэрийн даалгавар Toggle Switch</h2>
+
+            <div class="toggle-container">
+                <div class="toggle-switch" id="toggle-notifications"></div>
+                <span id="toggle-label">Notifications: OFF</span>
+            </div>
+
+            <div class="toggle-container">
+                <div class="toggle-switch" id="toggle-darkmode"></div>
+                <span id="darkmode-label">Dark Mode: OFF</span>
+            </div>
+        </section>
+
+
+        <!-- Color Picker -->
+        <section class="section">
+            <h2>Гэрийн даалгавар Color Picker Selection</h2>
+            <div class="flex gap-2 mt-3" id="color-picker">
+                <button class="btn btn-danger" data-color="#ef4444">Red</button>
+                <button class="btn btn-primary" data-color="#3b82f6">Blue</button>
+                <button class="btn btn-success" data-color="#10b981">Green</button>
+                <button class="btn btn-warning" data-color="#ffff00">Yellow</button>
+            </div>
+        </section>
+
+        <!-- Section 10: Gallery Selection -->
+        <section class="section" id="section-gallery">
+            <h2>10. Image Gallery Selection</h2>
+            <p>Зураг дээр дарж сонгоорой (олон сонголт: Ctrl/Cmd + click):</p>
+
+            <div class="gallery" id="gallery">
+                <div class="gallery-item" data-id="1">🏔️</div>
+                <div class="gallery-item" data-id="2">🌊</div>
+                <div class="gallery-item" data-id="3">🌲</div>
+                <div class="gallery-item" data-id="4">🌸</div>
+                <div class="gallery-item" data-id="5">🌅</div>
+                <div class="gallery-item" data-id="6">🏝️</div>
+            </div>
+
+            <p class="mt-3">Selected: <strong id="selected-items">None</strong></p>
+        </section>
+
+
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

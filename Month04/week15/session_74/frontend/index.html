@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms & Validation Practice</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Forms & Validation</h1>
+
+        <!-- Section 1: Basic Form Events -->
+        <section class="section" id="section-events">
+            <h2>1. Form Events</h2>
+            <p>Submit, reset, input, change event-үүдийг харна уу:</p>
+
+            <form id="events-form">
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-input" name="username" placeholder="Type to see input events...">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Category</label>
+                    <select class="form-input" name="category">
+                        <option value="">Select category...</option>
+                        <option value="tech">Technology</option>
+                        <option value="design">Design</option>
+                        <option value="business">Business</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </form>
+
+            <div class="output" id="output-events">
+                <div class="output-line">📝 Interact with the form to see events...</div>
+            </div>
+        </section>
+
+        <!-- Section 2: FormData API -->
+        <section class="section" id="section-formdata">
+            <h2>2. FormData API</h2>
+
+            <form id="formdata-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-input" name="firstName" value="John">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-input" name="lastName" value="Doe">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" name="email" value="john@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Skills</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="skills" value="javascript" checked> JavaScript
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="skills" value="react"> React
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="skills" value="nodejs" checked> Node.js
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="skills" value="python"> Python
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Experience Level</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="experience" value="junior"> Junior
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="experience" value="mid" checked> Mid-level
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="experience" value="senior"> Senior
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Get Form Data</button>
+                </div>
+            </form>
+
+            <div class="output" id="output-formdata">
+                <div class="output-line">📋 Submit to see FormData...</div>
+            </div>
+        </section>
+
+        <!-- Section 3: HTML5 Validation -->
+        <section class="section" id="section-html5">
+            <h2>3. HTML5 Built-in Validation</h2>
+
+            <form id="html5-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Username <span class="required">*</span></label>
+                        <input type="text" class="form-input" name="username" required minlength="3" maxlength="20"
+                            placeholder="3-20 characters">
+                        <div class="form-hint">3-20 тэмдэгт</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email <span class="required">*</span></label>
+                        <input type="email" class="form-input" name="email" required placeholder="your@email.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Age</label>
+                        <input type="number" class="form-input" name="age" min="18" max="120" placeholder="18-120">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Website</label>
+                        <input type="url" class="form-input" name="website" placeholder="https://example.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Phone (Pattern)</label>
+                    <input type="tel" class="form-input" name="phone" pattern="[0-9]{8}" placeholder="12345678">
+                    <div class="form-hint">8 оронтой тоо</div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+
+            <div class="output" id="output-html5">
+                <div class="output-line">✅ Submit to test HTML5 validation...</div>
+            </div>
+        </section>
+
+        <!-- Section 4: Custom Validation -->
+        <section class="section" id="section-custom">
+            <h2>4. Custom Validation</h2>
+
+            <div class="validation-summary" id="validation-summary">
+                <h4>⚠️ Please fix the following errors:</h4>
+                <ul id="error-list"></ul>
+            </div>
+
+            <form id="custom-form" novalidate>
+                <div class="form-group">
+                    <label class="form-label">Username <span class="required">*</span></label>
+                    <div class="input-icon-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input type="text" class="form-input" id="custom-username" name="username"
+                            placeholder="Choose a username">
+                        <span class="input-status" id="username-status"></span>
+                    </div>
+                    <div class="form-error" id="username-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email <span class="required">*</span></label>
+                    <div class="input-icon-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" class="form-input" id="custom-email" name="email"
+                            placeholder="your@email.com">
+                        <span class="input-status" id="email-status"></span>
+                    </div>
+                    <div class="form-error" id="email-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Password <span class="required">*</span></label>
+                    <div class="password-container">
+                        <input type="password" class="form-input" id="custom-password" name="password"
+                            placeholder="Create a password">
+                        <button type="button" class="password-toggle" id="toggle-password">👁️</button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar" id="str-1"></div>
+                        <div class="strength-bar" id="str-2"></div>
+                        <div class="strength-bar" id="str-3"></div>
+                        <div class="strength-bar" id="str-4"></div>
+                    </div>
+                    <div class="form-error" id="password-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Confirm Password <span class="required">*</span></label>
+                    <input type="password" class="form-input" id="custom-confirm" name="confirmPassword"
+                        placeholder="Confirm password">
+                    <div class="form-error" id="confirm-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="custom-terms" name="terms">
+                        I agree to the Terms and Conditions <span class="required">*</span>
+                    </label>
+                    <div class="form-error" id="terms-error"></div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="custom-submit">Create Account</button>
+                </div>
+            </form>
+
+            <div class="success-message" id="success-message">
+                <h3>🎉 Account Created!</h3>
+                <p>Welcome aboard! Your account has been successfully created.</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Real-time Validation -->
+        <section class="section" id="section-realtime">
+            <h2>5. Real-time Validation</h2>
+
+            <form id="realtime-form">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="realtime-email" placeholder="your@email.com">
+                    <div class="form-error" id="realtime-email-error"></div>
+                    <div class="form-success" id="realtime-email-success" style="display:none;">✓ Valid email</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Bio (max 200 characters)</label>
+                    <textarea class="form-input" id="realtime-bio" placeholder="Tell us about yourself..."
+                        maxlength="200"></textarea>
+                    <div class="char-counter" id="bio-counter">0 / 200</div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Section 6: Login Form -->
+        <section class="section" id="section-login">
+            <h2>6. Login Form</h2>
+
+            <form id="login-form" style="max-width: 400px;">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="login-email" name="email" placeholder="your@email.com"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="login-password" name="password"
+                        placeholder="Your password" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remember" id="login-remember">
+                        Remember me
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                </div>
+            </form>
+
+            <div class="output" id="output-login">
+                <div class="output-line">🔐 Try: test@example.com / password123</div>
+            </div>
+        </section>
+
+        <!-- Section 7: Contact Form -->
+        <section class="section" id="section-contact">
+            <h2>7. Contact Form</h2>
+
+            <form id="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Name <span class="required">*</span></label>
+                        <input type="text" class="form-input" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email <span class="required">*</span></label>
+                        <input type="email" class="form-input" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Subject</label>
+                    <select class="form-input" name="subject">
+                        <option value="">Select subject...</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="support">Technical Support</option>
+                        <option value="billing">Billing Question</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Message <span class="required">*</span></label>
+                    <textarea class="form-input" name="message" required placeholder="Your message..."
+                        rows="4"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="reset" class="btn btn-secondary">Clear</button>
+                </div>
+            </form>
+
+            <div class="form-preview" id="contact-preview" style="display: none;">
+                <div class="preview-title">📧 Message Preview</div>
+                <div class="preview-row">
+                    <span class="preview-label">From:</span>
+                    <span class="preview-value" id="preview-from"></span>
+                </div>
+                <div class="preview-row">
+                    <span class="preview-label">Subject:</span>
+                    <span class="preview-value" id="preview-subject"></span>
+                </div>
+                <div class="preview-row">
+                    <span class="preview-label">Message:</span>
+                    <span class="preview-value" id="preview-message"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Credit Card Form -->
+        <section class="section" id="section-payment">
+            <h2>8. Payment Form</h2>
+
+            <form id="payment-form" style="max-width: 500px;">
+                <div class="form-group">
+                    <label class="form-label">Card Number</label>
+                    <input type="text" class="form-input" id="card-number" placeholder="1234 5678 9012 3456"
+                        maxlength="19">
+                </div>
+
+                <div class="card-input-group">
+                    <div class="form-group">
+                        <label class="form-label">Expiry Date</label>
+                        <input type="text" class="form-input" id="card-expiry" placeholder="MM/YY" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">CVV</label>
+                        <input type="text" class="form-input" id="card-cvv" placeholder="123" maxlength="3">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Cardholder Name</label>
+                    <input type="text" class="form-input" id="card-name" placeholder="JOHN DOE"
+                        style="text-transform: uppercase;">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success" style="width: 100%;">
+                        💳 Pay $99.00
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Section 9: Multi-step Form -->
+        <section class="section" id="section-multistep">
+            <h2>9. Multi-step Form</h2>
+
+            <div class="step-indicator">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-line"></div>
+                    <div class="step-number">2</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-line"></div>
+                    <div class="step-number">3</div>
+                </div>
+            </div>
+
+            <form id="multistep-form">
+                <!-- Step 1: Personal Info -->
+                <div class="step-content active" id="step-1">
+                    <h3 class="mb-3">Personal Information</h3>
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" name="email" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary next-btn">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Address -->
+                <div class="step-content" id="step-2">
+                    <h3 class="mb-3">Address</h3>
+                    <div class="form-group">
+                        <label class="form-label">Street Address</label>
+                        <input type="text" class="form-input" name="address" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-input" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Zip Code</label>
+                            <input type="text" class="form-input" name="zip" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary prev-btn">← Back</button>
+                        <button type="button" class="btn btn-primary next-btn">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Confirmation -->
+                <div class="step-content" id="step-3">
+                    <h3 class="mb-3">Confirmation</h3>
+                    <div class="form-preview" id="multistep-preview">
+                        <!-- Preview will be filled -->
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary prev-btn">← Back</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Section 10: Dynamic Form -->
+        <section class="section" id="section-dynamic">
+            <h2>10. Dynamic Form Fields</h2>
+
+            <form id="dynamic-form">
+                <div class="form-group">
+                    <label class="form-label">Project Name</label>
+                    <input type="text" class="form-input" name="projectName" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Team Members</label>
+                    <div id="members-container">
+                        <div class="member-row flex gap-2 mb-3">
+                            <input type="text" class="form-input" name="members[]" placeholder="Member name"
+                                style="flex: 1;">
+                            <button type="button" class="btn btn-danger remove-member">×</button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" id="add-member">+ Add Member</button>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Create Project</button>
+                </div>
+            </form>
+
+            <div class="output" id="output-dynamic">
+                <div class="output-line">👥 Add team members and submit...</div>
+            </div>
+        </section>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

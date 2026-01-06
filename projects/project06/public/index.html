@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator - Light / Dark</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div id="app" class="calc-wrap">
+        <div class="topbar">
+            <div class="title">Calc</div>
+            <div style="display:flex;gap:8px;align-items:center;">
+                <button id="themeBtn" class="theme-toggle" title="Toggle theme">Dark</button>
+            </div>
+        </div>
+
+        <div class="display" aria-live="polite">
+            <div id="history" class="sub">&nbsp;</div>
+            <div id="output" class="main">0</div>
+        </div>
+
+        <div class="controls">
+            <button id="acBtn">AC</button>
+            <button id="cBtn">C</button>
+            <button id="percentBtn">%</button>
+            <button id="backBtn">⌫</button>
+        </div>
+
+        <div class="keys" role="group" aria-label="Calculator keys">
+            <button class="key" data-action="digit">7</button>
+            <button class="key" data-action="digit">8</button>
+            <button class="key" data-action="digit">9</button>
+            <button class="key key--accent" data-action="operator">÷</button>
+
+            <button class="key" data-action="digit">4</button>
+            <button class="key" data-action="digit">5</button>
+            <button class="key" data-action="digit">6</button>
+            <button class="key key--accent" data-action="operator">x</button>
+
+            <button class="key" data-action="digit">1</button>
+            <button class="key" data-action="digit">2</button>
+            <button class="key" data-action="digit">3</button>
+            <button class="key key--accent" data-action="operator">-</button>
+
+            <button class="key span-2" data-action="digit">0</button>
+            <button class="key" data-action="dot">.</button>
+            <button class="key key--accent" data-action="operator">+</button>
+
+            <button class="key span-2 key--op" id="equals">=</button>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

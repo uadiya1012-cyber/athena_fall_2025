@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Practice</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>⌨️ Event Handling Practice</h1>
+
+        <!-- Section 1: Keyboard Event Viewer -->
+        <section class="section" id="section-keyboard">
+            <h2>1. Keyboard Event Viewer</h2>
+            <p>Input дотор ямар ч товч дарж event-үүдийг харна уу:</p>
+
+            <div class="form-group mt-3">
+                <input type="text" class="form-input" id="keyboard-input"
+                    placeholder="Type here to see keyboard events...">
+            </div>
+
+            <div class="keyboard-display" id="keyboard-display">
+                <div class="key-box" id="key-ctrl">
+                    Ctrl
+                    <small>modifier</small>
+                </div>
+                <div class="key-box" id="key-shift">
+                    Shift
+                    <small>modifier</small>
+                </div>
+                <div class="key-box" id="key-alt">
+                    Alt
+                    <small>modifier</small>
+                </div>
+                <div class="key-box" id="key-last">
+                    ?
+                    <small>last key</small>
+                </div>
+            </div>
+
+            <div class="output" id="output-keyboard">
+                <div class="output-line">⌨️ Press any key to see events...</div>
+            </div>
+        </section>
+
+        <!-- Section 2: Focus Events -->
+        <section class="section" id="section-focus">
+            <h2>2. Focus Events</h2>
+            <p>Input-үүд дээр focus хийж event-үүдийг харна уу:</p>
+
+            <div class="flex gap-4 mt-3">
+                <div class="form-group" style="flex: 1;">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-input" id="focus-username" placeholder="Enter username">
+                    <div class="input-hint" id="hint-username"></div>
+                </div>
+
+                <div class="form-group" style="flex: 1;">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="focus-email" placeholder="Enter email">
+                    <div class="input-hint" id="hint-email"></div>
+                </div>
+            </div>
+
+            <div class="focus-indicator">
+                <span class="focus-dot" id="focus-dot"></span>
+                <span>Currently focused: <strong id="focus-current">None</strong></span>
+            </div>
+
+            <div class="output" id="output-focus">
+                <div class="output-line">🎯 Click on inputs to see focus events...</div>
+            </div>
+        </section>
+
+        <!-- Section 3: Input vs Change -->
+        <section class="section" id="section-input-change">
+            <h2>3. Input vs Change Event</h2>
+            <p>Input үед <code>input</code> (бичих бүрт) болон <code>change</code> (focus алдахад) event-үүдийг
+                харьцуулна:</p>
+
+            <div class="form-group mt-3">
+                <label class="form-label">Type something:</label>
+                <input type="text" class="form-input" id="input-change-demo"
+                    placeholder="Type and then click outside...">
+            </div>
+
+            <div class="flex gap-4">
+                <div style="flex: 1;">
+                    <p><strong>Input events:</strong> <span id="input-count">0</span></p>
+                </div>
+                <div style="flex: 1;">
+                    <p><strong>Change events:</strong> <span id="change-count">0</span></p>
+                </div>
+            </div>
+
+            <div class="output" id="output-input-change">
+                <div class="output-line">📝 Type in the input to compare events...</div>
+            </div>
+        </section>
+
+        <!-- Section 4: Character Counter -->
+        <section class="section" id="section-char-counter">
+            <h2>4. Character Counter</h2>
+
+            <div class="form-group">
+                <label class="form-label">Bio (max 150 characters)</label>
+                <textarea class="form-input" id="bio-input" placeholder="Write your bio..." maxlength="150"></textarea>
+                <div class="char-counter" id="char-counter">0 / 150</div>
+            </div>
+        </section>
+
+        <!-- Section 5: Live Preview -->
+        <section class="section" id="section-live-preview">
+            <h2>5. Live Preview</h2>
+            <p>Бичих бүрт preview шинэчлэгдэнэ:</p>
+
+            <div class="flex gap-4 mt-3">
+                <div style="flex: 1;">
+                    <div class="form-group">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-input" id="preview-name" placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" id="preview-email" placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Bio</label>
+                        <textarea class="form-input" id="preview-bio" placeholder="Tell us about yourself..."
+                            rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div style="flex: 1;">
+                    <div class="preview-card">
+                        <div class="preview-name" id="display-name">Your Name</div>
+                        <div class="preview-email" id="display-email">your@email.com</div>
+                        <div class="preview-bio" id="display-bio">Your bio will appear here...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Password Strength -->
+        <section class="section" id="section-password">
+            <h2>6. Password Strength Meter</h2>
+
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input" id="password-input" placeholder="Enter password">
+                <div class="password-strength">
+                    <div class="password-strength-bar" id="strength-bar"></div>
+                </div>
+                <div class="input-hint" id="password-hint">Enter a password to check strength</div>
+            </div>
+        </section>
+
+        <!-- Section 7: Keyboard Shortcuts -->
+        <section class="section" id="section-shortcuts">
+            <h2>7. Keyboard Shortcuts</h2>
+            <p>Дараах товчлуурын хослолуудыг дараарай:</p>
+
+            <div class="shortcut-list">
+                <div class="shortcut-item">
+                    <span>Search</span>
+                    <div class="shortcut-keys">
+                        <span class="shortcut-key">Ctrl</span>
+                        <span class="shortcut-key">K</span>
+                    </div>
+                </div>
+                <div class="shortcut-item">
+                    <span>Save</span>
+                    <div class="shortcut-keys">
+                        <span class="shortcut-key">Ctrl</span>
+                        <span class="shortcut-key">S</span>
+                    </div>
+                </div>
+                <div class="shortcut-item">
+                    <span>Bold</span>
+                    <div class="shortcut-keys">
+                        <span class="shortcut-key">Ctrl</span>
+                        <span class="shortcut-key">B</span>
+                    </div>
+                </div>
+                <div class="shortcut-item">
+                    <span>Escape</span>
+                    <div class="shortcut-keys">
+                        <span class="shortcut-key">Esc</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="output" id="output-shortcuts">
+                <div class="output-line">⌨️ Try pressing the shortcuts above...</div>
+            </div>
+        </section>
+
+        <!-- Section 8: Search with Shortcut -->
+        <section class="section" id="section-search">
+            <h2>8. Search Box (Ctrl+K)</h2>
+            <p>Ctrl+K дарж search-г focus хийнэ. Esc дарж blur хийнэ.</p>
+
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="form-input search-input" id="search-input" placeholder="Search...">
+                <span class="search-shortcut">Ctrl+K</span>
+            </div>
+
+            <div class="output" id="output-search">
+                <div class="output-line">🔍 Press Ctrl+K to focus search...</div>
+            </div>
+        </section>
+
+        <!-- Section 9: Tag Input -->
+        <section class="section" id="section-tags">
+            <h2>9. Tag Input</h2>
+            <p>Текст бичээд Enter дарж tag нэмнэ. Backspace дарж сүүлийн tag устгана.</p>
+
+            <div class="form-group">
+                <label class="form-label">Tags</label>
+                <div class="tag-input-container" id="tag-container">
+                    <input type="text" class="tag-input" id="tag-input" placeholder="Type and press Enter...">
+                </div>
+                <div class="input-hint">Press Enter to add tag, Backspace to remove last tag</div>
+            </div>
+        </section>
+
+        <!-- Section 10: Mini Todo App -->
+        <section class="section" id="section-todo">
+            <h2>10. Mini Todo App</h2>
+            <p>Enter дарж todo нэмнэ. Checkbox дарж дуусгана.</p>
+
+            <div class="todo-input-area">
+                <input type="text" class="form-input" id="todo-input" placeholder="Add new todo...">
+                <button class="btn btn-primary" id="todo-add-btn">Add</button>
+            </div>
+
+            <ul class="todo-list" id="todo-list">
+                <!-- Todos will be added here -->
+            </ul>
+
+            <p class="text-muted mt-3">
+                <span id="todo-count">0</span> items |
+                <span id="todo-completed">0</span> completed
+            </p>
+        </section>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

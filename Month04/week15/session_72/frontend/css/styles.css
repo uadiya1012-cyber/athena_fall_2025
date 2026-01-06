@@ -1,0 +1,528 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    padding: 20px;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #1a1a2e;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #16213e;
+    font-size: 1.2rem;
+    margin: 30px 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #10b981;
+}
+
+/* Section styles */
+.section {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #374151;
+    font-size: 14px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    background: #f9fafb;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-input.valid {
+    border-color: #10b981;
+    background: #f0fdf4;
+}
+
+.form-input.invalid {
+    border-color: #ef4444;
+    background: #fef2f2;
+}
+
+.form-input:disabled {
+    background: #e5e7eb;
+    cursor: not-allowed;
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.input-hint {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.input-hint.error {
+    color: #ef4444;
+}
+
+.input-hint.success {
+    color: #10b981;
+}
+
+/* Character counter */
+.char-counter {
+    text-align: right;
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.char-counter.warning {
+    color: #f59e0b;
+}
+
+.char-counter.danger {
+    color: #ef4444;
+}
+
+/* Button styles */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin: 5px;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+.btn-primary:disabled {
+    background: #93c5fd;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.btn-success {
+    background: #10b981;
+    color: white;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+/* Output display */
+.output {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    min-height: 80px;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 15px;
+}
+
+.output-line {
+    margin: 4px 0;
+    padding: 4px 0;
+    border-bottom: 1px solid #334155;
+}
+
+.output-line:last-child {
+    border-bottom: none;
+}
+
+.key-display {
+    display: inline-block;
+    background: #374151;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin: 0 4px;
+    font-weight: bold;
+}
+
+.event-type {
+    color: #f59e0b;
+    font-weight: bold;
+}
+
+.timestamp {
+    color: #64748b;
+    margin-right: 10px;
+}
+
+/* Keyboard display */
+.keyboard-display {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.key-box {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(145deg, #e2e8f0, #cbd5e1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    box-shadow: 0 4px 0 #94a3b8;
+    transition: all 0.1s ease;
+}
+
+.key-box.pressed {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 #94a3b8;
+    background: linear-gradient(145deg, #3b82f6, #2563eb);
+    color: white;
+}
+
+.key-box small {
+    font-size: 10px;
+    color: #6b7280;
+    margin-top: 2px;
+}
+
+.key-box.pressed small {
+    color: #bfdbfe;
+}
+
+/* Search box */
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    padding-left: 40px;
+    padding-right: 60px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 18px;
+}
+
+.search-shortcut {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #e5e7eb;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* Tag input */
+.tag-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background: #f9fafb;
+    min-height: 50px;
+    cursor: text;
+}
+
+.tag-input-container:focus-within {
+    border-color: #3b82f6;
+    background: white;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #3b82f6;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.tag-remove {
+    cursor: pointer;
+    opacity: 0.7;
+    font-size: 16px;
+}
+
+.tag-remove:hover {
+    opacity: 1;
+}
+
+.tag-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    flex: 1;
+    min-width: 100px;
+    font-size: 14px;
+}
+
+/* Password strength */
+.password-strength {
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.password-strength-bar {
+    height: 100%;
+    width: 0;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.password-strength-bar.weak {
+    width: 33%;
+    background: #ef4444;
+}
+
+.password-strength-bar.medium {
+    width: 66%;
+    background: #f59e0b;
+}
+
+.password-strength-bar.strong {
+    width: 100%;
+    background: #10b981;
+}
+
+/* Live preview */
+.preview-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.preview-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.preview-email {
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.preview-bio {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Shortcut display */
+.shortcut-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.shortcut-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #f3f4f6;
+    border-radius: 8px;
+}
+
+.shortcut-keys {
+    display: flex;
+    gap: 4px;
+}
+
+.shortcut-key {
+    background: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus indicator */
+.focus-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f3f4f6;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.focus-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #9ca3af;
+}
+
+.focus-dot.active {
+    background: #10b981;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Todo item for practice */
+.todo-input-area {
+    display: flex;
+    gap: 10px;
+}
+
+.todo-input-area .form-input {
+    flex: 1;
+}
+
+.todo-list {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background: #f9fafb;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: all 0.2s;
+}
+
+.todo-item:hover {
+    background: #f3f4f6;
+}
+
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.todo-text {
+    flex: 1;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.todo-delete {
+    color: #ef4444;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.todo-item:hover .todo-delete {
+    opacity: 1;
+}
+
+/* Flex utilities */
+.flex {
+    display: flex;
+}
+
+.gap-2 {
+    gap: 10px;
+}
+
+.gap-4 {
+    gap: 20px;
+}
+
+.mt-3 {
+    margin-top: 15px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: #6b7280;
+    font-size: 14px;
+}

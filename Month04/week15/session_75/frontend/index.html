@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>Todo List</h1>
+            <p class="app-subtitle">Week 1-2 Project</p>
+        </header>
+
+        <!-- Add Todo Form -->
+        <form class="todo-form" id="todo-form">
+            <div class="input-group">
+                <input type="text" class="todo-input" id="todo-input" placeholder="What needs to be done?"
+                    autocomplete="off" maxlength="100">
+                <button type="submit" class="btn btn-add" id="add-btn">
+                    Add
+                </button>
+            </div>
+            <div class="input-hint">
+                <span id="char-count">0</span>/100 |
+                <kbd>Enter</kbd> add |
+                <kbd>Esc</kbd> clear
+            </div>
+        </form>
+
+        <!-- Filters -->
+        <div class="filters" id="filters">
+            <button class="filter-btn active" data-filter="all">
+                All <span class="badge" id="count-all">0</span>
+            </button>
+            <button class="filter-btn" data-filter="active">
+                Active <span class="badge" id="count-active">0</span>
+            </button>
+            <button class="filter-btn" data-filter="completed">
+                Completed <span class="badge" id="count-completed">0</span>
+            </button>
+        </div>
+
+        <!-- Todo List -->
+        <ul class="todo-list" id="todo-list">
+            <!-- Todo items will be rendered here -->
+        </ul>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="empty-state">
+            <div class="empty-icon">📋</div>
+            <p>No todos yet!</p>
+            <p class="empty-hint">Add your first todo above</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer" id="app-footer">
+            <div class="footer-left">
+                <span id="items-left">0</span> items left
+            </div>
+            <div class="footer-right">
+                <button class="btn btn-text" id="toggle-all-btn">
+                    Toggle All
+                </button>
+                <button class="btn btn-text btn-danger" id="clear-completed-btn">
+                    Clear Completed
+                </button>
+            </div>
+        </footer>
+
+        <!-- Keyboard Shortcuts Help -->
+        <div class="shortcuts-help">
+            <details>
+                <summary>Keyboard Shortcuts</summary>
+                <div class="shortcuts-list">
+                    <div class="shortcut-item">
+                        <kbd>Enter</kbd>
+                        <span>Add todo</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>Escape</kbd>
+                        <span>Clear input</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>Ctrl</kbd> + <kbd>A</kbd>
+                        <span>Toggle all</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>Double-click</kbd>
+                        <span>Edit todo</span>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

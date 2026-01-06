@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Profile Card</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="app" id="app">
+        <!-- Theme Toggle -->
+        <div class="theme-controls">
+            <button class="theme-btn" id="theme-toggle" title="Toggle Dark Mode">
+                🌙
+            </button>
+            <div class="color-options" id="color-options">
+                <button class="color-btn" data-color="blue" style="background: #3b82f6;"></button>
+                <button class="color-btn" data-color="purple" style="background: #8b5cf6;"></button>
+                <button class="color-btn" data-color="green" style="background: #10b981;"></button>
+                <button class="color-btn" data-color="orange" style="background: #f59e0b;"></button>
+                <button class="color-btn" data-color="pink" style="background: #ec4899;"></button>
+            </div>
+        </div>
+
+        <!-- Profile Card -->
+        <div class="profile-card" id="profile-card">
+            <!-- Header with Avatar -->
+            <div class="card-header">
+                <div class="avatar" id="avatar">
+                    <span class="avatar-text" id="avatar-text">JD</span>
+                </div>
+                <button class="edit-btn" id="edit-toggle" title="Edit Profile">
+                    ✏️
+                </button>
+            </div>
+
+            <!-- Profile Info (View Mode) -->
+            <div class="profile-info" id="profile-view">
+                <h1 class="profile-name" id="profile-name">John Doe</h1>
+                <p class="profile-title" id="profile-title">Full-Stack Developer</p>
+                <p class="profile-bio" id="profile-bio">
+                    Passionate about building beautiful and functional web applications.
+                    Love to learn new technologies and share knowledge with others.
+                </p>
+                <div class="profile-location" id="profile-location">
+                    <span class="location-icon">📍</span>
+                    <span class="location-text">Ulaanbaatar, Mongolia</span>
+                </div>
+            </div>
+
+            <!-- Profile Edit Form (Hidden by default) -->
+            <div class="profile-edit hidden" id="profile-edit">
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-input" id="edit-name" value="John Doe">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" id="edit-title" value="Full-Stack Developer">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Bio</label>
+                    <textarea class="form-input form-textarea" id="edit-bio"
+                        rows="3">Passionate about building beautiful and functional web applications. Love to learn new technologies and share knowledge with others.</textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Location</label>
+                    <input type="text" class="form-input" id="edit-location" value="Ulaanbaatar, Mongolia">
+                </div>
+                <div class="edit-actions">
+                    <button class="btn btn-secondary" id="cancel-edit">Cancel</button>
+                    <button class="btn btn-primary" id="save-edit">Save Changes</button>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-section" id="stats-section">
+                <div class="stat-item" data-stat="projects">
+                    <span class="stat-number" id="stat-projects">0</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item" data-stat="followers">
+                    <span class="stat-number" id="stat-followers">0</span>
+                    <span class="stat-label">Followers</span>
+                </div>
+                <div class="stat-item" data-stat="following">
+                    <span class="stat-number" id="stat-following">0</span>
+                    <span class="stat-label">Following</span>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="skills-section" id="skills-section">
+                <div class="section-header">
+                    <h3 class="section-title">Skills</h3>
+                    <button class="add-btn" id="add-skill-btn" title="Add Skill">+</button>
+                </div>
+
+                <!-- Add Skill Form (Hidden by default) -->
+                <div class="add-skill-form hidden" id="add-skill-form">
+                    <input type="text" class="form-input" id="skill-input" placeholder="Enter skill name...">
+                    <div class="skill-form-actions">
+                        <button class="btn btn-sm btn-secondary" id="cancel-skill">Cancel</button>
+                        <button class="btn btn-sm btn-primary" id="confirm-skill">Add</button>
+                    </div>
+                </div>
+
+                <div class="skills-list" id="skills-list">
+                    <!-- Skills will be added here -->
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-section" id="social-section">
+                <a href="#" class="social-link" data-platform="github" title="GitHub">
+                    <span class="social-icon">🔗</span>
+                    <span class="social-text">GitHub</span>
+                </a>
+                <a href="#" class="social-link" data-platform="linkedin" title="LinkedIn">
+                    <span class="social-icon">💼</span>
+                    <span class="social-text">LinkedIn</span>
+                </a>
+                <a href="#" class="social-link" data-platform="twitter" title="Twitter">
+                    <span class="social-icon">🐦</span>
+                    <span class="social-text">Twitter</span>
+                </a>
+                <a href="#" class="social-link" data-platform="website" title="Website">
+                    <span class="social-icon">🌐</span>
+                    <span class="social-text">Website</span>
+                </a>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons" id="action-buttons">
+                <button class="btn btn-primary btn-block" id="follow-btn">
+                    <span class="btn-icon">👤</span>
+                    <span class="btn-text">Follow</span>
+                </button>
+                <button class="btn btn-secondary btn-block" id="message-btn">
+                    <span class="btn-icon">💬</span>
+                    <span class="btn-text">Message</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Notification Container -->
+        <div class="notification-container" id="notification-container"></div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
