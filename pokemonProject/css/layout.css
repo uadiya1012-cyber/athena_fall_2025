@@ -1,0 +1,31 @@
+/* =========================================
+   PAGE LAYOUT
+========================================= */
+
+/* Main grid */
+main {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 32px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+/* Header logo */
+.header-icons {
+    max-width: 1384px;
+    margin: 24px auto;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-icons img {
+    width: 296px;
+    height: 44px;
+}
+
+/* End of pokemonProject/css/layout.css */

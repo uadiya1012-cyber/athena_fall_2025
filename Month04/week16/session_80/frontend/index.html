@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <h1>🌤️ Weather App</h1>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <form id="search-form">
+                <input type="text" id="city-input" placeholder="Enter city name...">
+                <button type="submit">Search</button>
+            </form>
+            <button id="location-btn">📍 Use My Location</button>
+        </section>
+
+        <!-- Recent Searches -->
+        <section class="recent-section" id="recent-section">
+            <h3>Recent Searches</h3>
+            <div class="recent-list" id="recent-list"></div>
+        </section>
+
+        <!-- Loading State -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <!-- Error State -->
+        <div class="error" id="error">
+            <p id="error-message"></p>
+            <button id="error-retry">Try Again</button>
+        </div>
+
+        <!-- Weather Display -->
+        <main class="weather-container" id="weather-container">
+            <!-- Current Weather -->
+            <section class="current-weather" id="current-weather">
+                <!-- Filled by JavaScript -->
+                <div class="suggestions" id="suggestions"></div>
+            </section>
+
+            <!-- Forecast -->
+            <section class="forecast" id="forecast">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-list" id="forecast-list">
+                    <!-- Filled by JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

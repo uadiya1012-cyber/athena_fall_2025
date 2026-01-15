@@ -9,11 +9,109 @@
 </head>
 
 <body>
-    <h1>Pokemon</h1>
-    <main id="main">
+    <header id="header">
+        <div class="search-bar">
+            <div class="search-input-wrapper">
+                <img src="./assets/vector/search.svg" alt="search" class="search-icon">
+                <input type="text" id="searchInput" placeholder="Pokemon name, number or type" />
+            </div>
+            <button class="search-btn">Search</button>
+        </div>
 
+        <!-- dropdown filter -->
+        <div class="filters">
+
+            <!-- зүүн талын filter хэсэг -->
+            <div class="custom-dropdown" id="sortDropdown">
+                <button class="dropdown-toggle">
+                    <span id="sortLabel">Lowest Number First</span>
+                    <img src="./assets/vector/ep_arrow-down.svg" alt="arrow">
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li data-value="id-asc">Lowest Number First </li>
+
+                    <li data-value="id-desc">Highest Number First</li>
+
+                    <li data-value="az">Alphabetically (A–Z)</li>
+
+                    <li data-value="za">Alphabetically (Z–A)</li>
+
+                </ul>
+            </div>
+
+
+            <!-- баруун талын filter хэсэг -->
+            <button id="filterBtn" class="filter-btn">
+                <img src="./assets/vector/octicon_filter-16.svg" alt="">
+                Filters
+            </button>
+
+        </div>
+    </header>
+
+    <div class="filter-panel" id="filterPanel">
+        <div class="filter-header">
+            <span>Filters</span>
+            <button id="closeFilter">✕</button>
+        </div>
+
+        <div class="filter-group">
+            <p class="filter-title">Type</p>
+
+            <label><input type="checkbox" value="grass"> Grass</label>
+            <label><input type="checkbox" value="fire"> Fire</label>
+            <label><input type="checkbox" value="water"> Water</label>
+            <label><input type="checkbox" value="poison"> Poison</label>
+            <label><input type="checkbox" value="flying"> Flying</label>
+            <label><input type="checkbox" value="bug"> Bug</label>
+            <label><input type="checkbox" value="normal"> Normal</label>
+            <label><input type="checkbox" value="rock"> Rock</label>
+            <label><input type="checkbox" value="ground"> Ground</label>
+            <label><input type="checkbox" value="fighting"> Fighting</label>
+            <label><input type="checkbox" value="ghost"> Ghost</label>
+            <label><input type="checkbox" value="psychic"> Psychic</label>
+            <label><input type="checkbox" value="ice"> Ice</label>
+            <label><input type="checkbox" value="dragon"> Dragon</label>
+            <label><input type="checkbox" value="dark"> Dark</label>
+            <label><input type="checkbox" value="fairy"> Fairy</label>
+            <label><input type="checkbox" value="electric"> Electric</label>
+            <label><input type="checkbox" value="steel"> Steel</label>
+
+        </div>
+
+        <div class="filter-actions">
+            <button id="resetFilters">Reset filters</button>
+            <button id="applyFilters">Apply filters</button>
+        </div>
+    </div>
+
+
+    <main id="main">
     </main>
-    <script src="./js/pokemon.js"></script>
+
+    <!-- Modal for displaying Pokemon details -->
+    <div id="pokemonModal" class="modal">
+        <div class="modal-backdrop"></div>
+
+        <div class="modal-content">
+            <button id="closeModal" class="modal-close">✕</button>
+            <div id="modalBody" class="modal-body">
+                <!-- Dynamic content will be injected here -->
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-name">HP</span>
+                        <div class="stat-bar">
+                            <div class="stat-fill" style="width: 70%;"></div>
+                        </div>
+                        <span class="stat-value">70</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="./js/main.js"></script>
+
+
 </body>
 
 </html>
