@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        My Base Title
+        {% endblock title %}
+    </title>
+    <link rel="stylesheet" href="{% static 'pages/css/styles.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>My Awesome Website</h1>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Child templates -->
+        {% endblock content %}
+    </main>
+
+    <footer>
+        &copy; 2026
+    </footer>
+
+    <script src="{% static 'pages/js/scripts.js' %}"></script>
+</body>
+
+</html>

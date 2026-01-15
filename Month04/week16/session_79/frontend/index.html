@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Practice</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌐 Fetch API Practice</h1>
+
+        <!-- Exercise 1: Basic GET -->
+        <section class="section" id="section-1">
+            <h2>1. Basic GET Request</h2>
+            <p class="description">JSONPlaceholder API-с post авах</p>
+
+            <div class="flex flex-center">
+                <input type="number" class="form-input" id="ex1-postId" value="1" min="1" max="100"
+                    style="width: 100px;">
+                <button class="btn btn-primary" id="ex1-btn">Fetch Post</button>
+            </div>
+
+            <div class="output" id="output-1"></div>
+        </section>
+
+        <!-- Exercise 2: Fetch Users -->
+        <section class="section" id="section-2">
+            <h2>2. Fetch & Display Users</h2>
+            <p class="description">Users-г card-аар харуулах</p>
+
+            <div class="flex flex-center">
+                <button class="btn btn-primary" id="ex2-btn">Load Users</button>
+            </div>
+
+            <div class="card-grid" id="ex2-users"></div>
+
+            <div class="output" id="output-2" style="min-height: 80px;"></div>
+        </section>
+
+        <!-- Exercise 3: POST Request -->
+        <section class="section" id="section-3">
+            <h2>3. POST - Create New Post</h2>
+            <p class="description">Шинэ post үүсгэх</p>
+
+            <div class="form-group">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-input" id="ex3-title" placeholder="Post title" style="width: 100%;">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Body</label>
+                <textarea class="form-input" id="ex3-body" placeholder="Post content" style="width: 100%;"></textarea>
+            </div>
+
+            <button class="btn btn-success" id="ex3-btn">Create Post</button>
+
+            <div class="output" id="output-3"></div>
+        </section>
+
+        <!-- Exercise 4: Error Handling -->
+        <section class="section" id="section-4">
+            <h2>4. Error Handling</h2>
+            <p class="description">404 болон network error handling</p>
+
+            <div class="flex flex-center">
+                <button class="btn btn-primary" id="ex4-valid">Valid URL</button>
+                <button class="btn btn-danger" id="ex4-invalid">Invalid URL (404)</button>
+                <button class="btn btn-secondary" id="ex4-network">Network Error</button>
+            </div>
+
+            <div class="output" id="output-4"></div>
+        </section>
+
+        <!-- Exercise 5: Loading States -->
+        <section class="section" id="section-5">
+            <h2>5. Loading States</h2>
+            <p class="description">Loading spinner, success, error states</p>
+
+            <div class="flex flex-center mb-3">
+                <button class="btn btn-primary" id="ex5-btn">Fetch Data (2s delay)</button>
+            </div>
+
+            <div class="text-center mb-3">
+                <span class="status-badge" id="ex5-status">Ready</span>
+            </div>
+
+            <div class="output" id="output-5"></div>
+        </section>
+
+        <!-- Exercise 6: Search with Debounce -->
+        <section class="section" id="section-6">
+            <h2>6. Search Users</h2>
+            <p class="description">Debounced search with fetch</p>
+
+            <input type="text" class="form-input" id="ex6-search" placeholder="🔍 Search users by name..."
+                style="width: 100%;">
+
+            <div class="card-grid" id="ex6-results"></div>
+
+            <div class="output" id="output-6" style="min-height: 80px;"></div>
+        </section>
+
+        <!-- Exercise 7: Parallel Requests -->
+        <section class="section" id="section-7">
+            <h2>7. Parallel Requests (Promise.all)</h2>
+            <p class="description">User + Posts + Todos зэрэг fetch хийх</p>
+
+            <div class="flex flex-center">
+                <input type="number" class="form-input" id="ex7-userId" value="1" min="1" max="10"
+                    style="width: 100px;">
+                <button class="btn btn-primary" id="ex7-btn">Load User Data</button>
+            </div>
+
+            <div class="card-grid" id="ex7-data"></div>
+
+            <div class="output" id="output-7" style="min-height: 80px;"></div>
+        </section>
+
+        <!-- Exercise 8: Abort Controller -->
+        <section class="section" id="section-8">
+            <h2>8. Cancel Request (AbortController)</h2>
+            <p class="description">Request-г цуцлах</p>
+
+            <div class="flex flex-center">
+                <button class="btn btn-primary" id="ex8-start">Start Request</button>
+                <button class="btn btn-danger" id="ex8-cancel" disabled>Cancel</button>
+            </div>
+
+            <div class="output" id="output-8"></div>
+        </section>
+
+        <!-- Exercise 9: CRUD Operations -->
+        <section class="section" id="section-9">
+            <h2>9. CRUD Operations</h2>
+            <p class="description">Create, Read, Update, Delete</p>
+
+            <div class="tabs">
+                <button class="tab active" data-action="get">GET</button>
+                <button class="tab" data-action="post">POST</button>
+                <button class="tab" data-action="put">PUT</button>
+                <button class="tab" data-action="delete">DELETE</button>
+            </div>
+
+            <div class="flex">
+                <input type="number" class="form-input" id="ex9-id" value="1" placeholder="ID" style="width: 80px;">
+                <input type="text" class="form-input" id="ex9-title" placeholder="Title" style="flex: 1;">
+                <button class="btn btn-primary" id="ex9-btn">Execute</button>
+            </div>
+
+            <div class="output" id="output-9"></div>
+        </section>
+
+        <!-- Exercise 10: Pagination -->
+        <section class="section" id="section-10">
+            <h2>10. Pagination</h2>
+            <p class="description">Posts-г хуудаслаж харуулах</p>
+
+            <div class="flex flex-center mb-3">
+                <button class="btn btn-secondary" id="ex10-prev" disabled>← Previous</button>
+                <span id="ex10-page" style="padding: 0 20px;">Page 1</span>
+                <button class="btn btn-secondary" id="ex10-next">Next →</button>
+            </div>
+
+            <div class="card-grid" id="ex10-posts"></div>
+
+            <div class="output" id="output-10" style="min-height: 60px;"></div>
+        </section>
+    </div>
+
+    <script src="./js/srcitp.js"></script>
+</body>
+
+</html>

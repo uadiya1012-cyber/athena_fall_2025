@@ -1,0 +1,23 @@
+/* =========================================
+   BASE / GLOBAL STYLES
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #F6F8FC;
+    color: #222;
+}
+
+header {
+    position: relative;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}

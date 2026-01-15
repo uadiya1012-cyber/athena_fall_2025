@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises Practice</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🤝 Promises Practice</h1>
+
+        <!-- Exercise 1: Basic Promise -->
+        <section class="section" id="section-1">
+            <h2>1. Create Basic Promise</h2>
+            <p class="description">Random-оор success эсвэл fail болох Promise</p>
+
+            <div class="flex flex-center">
+                <button class="btn btn-primary" id="ex1-btn">Create Promise</button>
+            </div>
+
+            <div class="text-center mt-3">
+                <span class="promise-state pending" id="ex1-state">
+                    ⏳ Pending
+                </span>
+            </div>
+
+            <div class="output" id="output-1"></div>
+        </section>
+
+        <!-- Exercise 2: Promise Chain -->
+        <section class="section" id="section-2">
+            <h2>2. Promise Chain</h2>
+            <p class="description">Sequential calculations with chaining</p>
+
+            <div class="flex flex-center">
+                <input type="number" class="form-input" id="ex2-input" value="5" style="width: 100px;">
+                <button class="btn btn-primary" id="ex2-btn">Calculate</button>
+            </div>
+
+            <div class="output" id="output-2"></div>
+        </section>
+
+        <!-- Exercise 3: Error Handling -->
+        <section class="section" id="section-3">
+            <h2>3. Error Handling</h2>
+            <p class="description">Error propagation and recovery</p>
+
+            <div class="flex flex-center">
+                <button class="btn btn-success" id="ex3-success">Success Path</button>
+                <button class="btn btn-danger" id="ex3-fail">Fail at Step 2</button>
+                <button class="btn btn-secondary" id="ex3-recover">Fail & Recover</button>
+            </div>
+
+            <div class="output" id="output-3"></div>
+        </section>
+
+        <!-- Exercise 4: Promise.all -->
+        <section class="section" id="section-4">
+            <h2>4. Promise.all - Parallel Fetch</h2>
+            <p class="description">Fetch multiple users in parallel</p>
+
+            <div class="flex flex-center">
+                <button class="btn btn-primary" id="ex4-btn">Fetch All Users</button>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="ex4-progress"></div>
+            </div>
+
+            <div class="card-grid" id="ex4-cards"></div>
+
+            <div class="output" id="output-4"></div>
+        </section>
+
+        <!-- Exercise 5: Promise.race - Timeout -->
+        <section class="section" id="section-5">
+            <h2>5. Promise.race - Timeout Pattern</h2>
+            <p class="description">API call with timeout</p>
+
+            <div class="flex flex-center">
+                <input type="number" class="form-input" id="ex5-timeout" value="2000" placeholder="Timeout (ms)"
+                    style="width: 120px;">
+                <button class="btn btn-primary" id="ex5-btn">Fetch with Timeout</button>
+            </div>
+
+            <div class="output" id="output-5"></div>
+        </section>
+
+        <!-- Exercise 6: Promise.allSettled -->
+        <section class="section" id="section-6">
+            <h2>6. Promise.allSettled - Mixed Results</h2>
+            <p class="description">Handle both success and failure results</p>
+
+            <div class="flex flex-center">
+                <button class="btn btn-primary" id="ex6-btn">Fetch All (Some May Fail)</button>
+            </div>
+
+            <div class="output" id="output-6"></div>
+        </section>
+
+        <!-- Exercise 7: Sequential vs Parallel -->
+        <section class="section" id="section-7">
+            <h2>7. Sequential vs Parallel</h2>
+            <p class="description">Compare execution time</p>
+
+            <div class="flex flex-center">
+                <button class="btn btn-primary" id="ex7-sequential">Sequential</button>
+                <button class="btn btn-success" id="ex7-parallel">Parallel</button>
+            </div>
+
+            <div class="output" id="output-7"></div>
+        </section>
+
+        <!-- Exercise 8: Retry with Promise -->
+        <section class="section" id="section-8">
+            <h2>8. Retry Pattern</h2>
+            <p class="description">Retry failed requests up to 3 times</p>
+
+            <div class="flex flex-center">
+                <button class="btn btn-primary" id="ex8-btn">Fetch with Retry</button>
+            </div>
+
+            <div class="output" id="output-8"></div>
+        </section>
+
+        <!-- Exercise 9: Promise Queue -->
+        <section class="section" id="section-9">
+            <h2>9. Promise Queue</h2>
+            <p class="description">Process tasks one by one</p>
+
+            <div class="flex flex-center">
+                <button class="btn btn-primary" id="ex9-add">Add Task</button>
+                <button class="btn btn-success" id="ex9-start">Process Queue</button>
+                <button class="btn btn-secondary" id="ex9-clear">Clear</button>
+            </div>
+
+            <div class="output" id="output-9"></div>
+        </section>
+
+        <!-- Exercise 10: Real-world Example -->
+        <section class="section" id="section-10">
+            <h2>10. User Profile Loader</h2>
+            <p class="description">Load user, posts, and followers</p>
+
+            <div class="flex flex-center">
+                <input type="number" class="form-input" id="ex10-userId" value="1" placeholder="User ID"
+                    style="width: 100px;">
+                <button class="btn btn-primary" id="ex10-btn">Load Profile</button>
+            </div>
+
+            <div class="card-grid" id="ex10-profile"></div>
+
+            <div class="output" id="output-10"></div>
+        </section>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
