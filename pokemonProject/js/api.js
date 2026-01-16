@@ -3,7 +3,7 @@ import { state } from './state.js';
 import { render } from './render.js';
 
 const POKEMON_URL =
-    'https://pokeapi.co/api/v2/pokemon?offset=0&limit=100';
+    'https://pokeapi.co/api/v2/pokemon?offset=0&limit=1000';
 
 export function loadPokemons() {
     fetch(POKEMON_URL)
