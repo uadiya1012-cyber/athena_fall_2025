@@ -18,22 +18,27 @@
 
 .modal-content {
     position: relative;
-    max-width: 720px;
-    margin: 80px auto;
+    width: 725px;
+    height: 698px;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
     background: #fff;
     border-radius: 16px;
     padding: 24px;
     z-index: 2;
+    overflow: hidden;
 }
 
 .modal-close {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 25px;
+    left: 25px;
     border: none;
     background: none;
     font-size: 20px;
     cursor: pointer;
+    z-index: 3;
 }
 
 
@@ -41,12 +46,13 @@
 .stats {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 12px;
 }
 
 .stat {
     display: grid;
-    grid-template-columns: 80px 1fr 40px;
+    grid-template-columns: 130px 1fr 500px;
     align-items: center;
     gap: 12px;
     font-size: 14px;
@@ -72,36 +78,7 @@
     font-weight: 600;
 }
 
-/* Evolution slider styles */
-.evolution {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 12px;
-}
-
-.evo-prev,
-.evo-next {
-    background: #f0f0f0;
-    border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.evo-viewport {
-    overflow: hidden;
-    flex: 1 1 auto;
-}
-
-.evo-track {
-    display: flex;
-    gap: 16px;
-    transition: transform 0.35s ease;
-    will-change: transform;
-}
+/* Evolution used a slider previously; slider-specific CSS removed (we now use .evolution-grid) */
 
 .evo-item {
     min-width: 180px;
@@ -123,6 +100,61 @@
     object-fit: contain;
 }
 
+/* Tabs */
+.tab-bar {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.tab-button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background: #f0f0f0;
+    cursor: pointer;
+}
+
+.tab-button.active {
+    background: #e0e0e0;
+    font-weight: 600;
+}
+
+.tab-content {
+    margin-top: 12px;
+    height: calc(100% - 360px);
+    /* leave room for header and tabs */
+    overflow: auto;
+}
+
+.tab-panel {
+    padding: 8px 0;
+}
+
+/* Evolution grid: show items side-by-side (3 across if possible) */
+.evolution-grid {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.evolution-grid .evo-item {
+    min-width: 30%;
+    flex: 1 1 0;
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    text-align: center;
+}
+
+.evolution-grid .evo-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
 .evo-name {
     font-weight: 600;
     text-transform: capitalize;
@@ -133,30 +165,142 @@
     color: #666;
 }
 
+.evo-items {
+    display: block;
+    margin: 100px auto;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
 /* small modal header/meta tweaks */
 .modal-header {
     display: flex;
     gap: 16px;
     align-items: center;
+    /* make header span the whole modal-content outer width (725px) by expanding past the inner padding */
+    width: calc(100% + 48px);
+    /* modal-content padding-left+right = 48px */
+    /* pull header up to remove top padding gap from .modal-content */
+    margin: -24px -24px 0 -24px;
+    height: 286px;
+    /* fixed header height */
+    box-sizing: border-box;
 }
 
-.modal-header h2 {
-    text-transform: capitalize;
-    margin: 0;
-}
+/* modal header artwork is positioned via .modal-left/.modal-image-wrapper now */
 
 .meta {
     margin-top: 8px;
     display: flex;
     gap: 16px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.modal .modal-types {
+    /* kept a minimal fallback for modal-types */
+    display: flex;
+    gap: 8px;
     align-items: center;
 }
 
-.modal .types .type {
-    display: inline-block;
-    background: rgba(0, 0, 0, 0.05);
-    padding: 4px 8px;
-    border-radius: 999px;
+/* modal-scoped card visuals to mimic .pokemon-card without affecting global cards */
+.modal-pokemon-card {
+    width: 100%;
+    height: 100%;
+    /* fill the header height */
+    box-sizing: border-box;
+    padding: 18px;
+    border-radius: 12px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.modal-pokemon-card .modal-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modal-pokemon-card h2 {
+    font-size: 20px;
     text-transform: capitalize;
-    font-size: 12px;
+    margin: 0;
+}
+
+.modal-pokemon-id {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.modal-left {
+    flex: 0 0 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image-wrapper {
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+}
+
+.modal-image-wrapper img {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+}
+
+.modal-right {
+    flex: 1 1 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.modal-pokemon-card .modal-types {
+    position: static;
+    display: flex;
+    gap: 12px;
+}
+
+.modal-pokemon-card .modal-type {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 87px;
+    height: 31px;
+    padding: 0;
+    border-radius: 999px;
+    font-size: 13px;
+    text-transform: capitalize;
+    color: #212121;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.modal-pokemon-card .modal-type .type-icon {
+    width: 16px;
+    height: 16px;
 }
