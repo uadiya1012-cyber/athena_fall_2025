@@ -1,0 +1,48 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Data Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Data Dashboard</h1>
+        <nav>
+            <button id="btn-users" class="nav-btn active">Users</button>
+            <button id="btn-posts" class="nav-btn">Posts</button>
+            <button id="btn-stats" class="nav-btn">Stats</button>
+        </nav>
+        <div style="margin-bottom: 1rem;">
+            <input type="text" id="search-input" placeholder="Search..."
+                style="width: 100%; padding: 0.75rem; border-radius: 5px; border: 1px solid #ccc; margin-top: 10px;" />
+        </div>
+
+    </header>
+
+    <main>
+        <!-- Loading indicator -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+
+        <!-- Error message -->
+        <div id="error" class="error hidden"></div>
+
+        <!-- Content container -->
+        <div id="content"></div>
+    </main>
+
+    <footer>
+        <p>Data from JSONPlaceholder API</p>
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

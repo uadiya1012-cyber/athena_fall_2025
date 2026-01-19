@@ -1,0 +1,184 @@
+.box-1 {
+    width: 100px;
+    height: 100px;
+    background-color: violet;
+    animation-name: animation-1;
+    animation-duration: 5s;
+}
+
+@keyframes animation-1 {
+    from {
+        background-color: violet;
+    }
+
+    to {
+        background-color: aqua;
+    }
+}
+
+.box-2 {
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    /* animation-name: animation-2; */
+    animation-duration: 5s;
+    animation-iteration-count: 5;
+    position: relative;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes animation-2 {
+    0% {
+        background-color: orange;
+        top: 0;
+        left: 0;
+    }
+
+    25% {
+        background-color: yellow;
+        top: 0;
+        left: 200px;
+    }
+
+    50% {
+        background-color: green;
+        top: 200px;
+        left: 200px;
+    }
+
+    75% {
+        background-color: blue;
+        top: 200px;
+        left: 0;
+    }
+
+    100% {
+        background-color: orange;
+        top: 0;
+        left: 0;
+    }
+}
+
+
+.item {
+    width: 100px;
+    height: 50px;
+    background-color: crimson;
+    margin-top: 10px;
+    animation-name: mymove;
+    animation-duration: 4s;
+    position: relative;
+}
+
+@keyframes mymove {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 300px;
+    }
+}
+
+.item-1 {
+    animation-timing-function: linear;
+}
+
+.item-2 {
+    animation-timing-function: ease;
+}
+
+.item-3 {
+    animation-timing-function: ease-in;
+}
+
+.item-4 {
+    animation-timing-function: ease-out;
+}
+
+.item-5 {
+    animation-timing-function: ease-in-out;
+}
+
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background-color: dodgerblue;
+    border-radius: 50%;
+    margin: 0 5px;
+    animation: bounce 1.2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+
+.hover-button {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: lightblue;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease-out;
+}
+
+.hover-button:hover {
+    transform: translateY(-5px);
+}
+
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    background-color: #111827;
+    color: white;
+    padding: 12px;
+}
+
+
+.marquee-inner {
+    display: flex;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee-inner span {
+    white-space: nowrap;
+    padding-right: 80px;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(var(--move-distance));
+    }
+}
