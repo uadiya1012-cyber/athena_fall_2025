@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <link rel="stylesheet" href="css/animation.css">
+</head>
+
+<body>
+    <h1>Animations</h1>
+
+    <div class="box-1"></div>
+    <div class="box-2"></div>
+
+    <div class="item item-1">linear</div>
+    <div class="item item-2">ease</div>
+    <div class="item item-3">ease in</div>
+    <div class="item item-4">ease out</div>
+    <div class="item item-5">ease in out</div>
+
+    <div class="loading">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <button class="hover-button">Click Me</button>
+
+    <div class="marquee">
+        <div class="marquee-inner" id="track">
+            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, accusantium.</span>
+        </div>
+    </div>
+
+    <script>
+        const track = document.getElementById('track');
+        const text = track.children[0];
+
+        while (track.offsetWidth < window.innerWidth * 2) {
+            track.appendChild(text.cloneNode(true));
+        }
+
+        const distance = track.scrollWidth / 2;
+        track.style.setProperty('--move-distance', `-${distance}px`);
+    </script>
+</body>
+
+</html>

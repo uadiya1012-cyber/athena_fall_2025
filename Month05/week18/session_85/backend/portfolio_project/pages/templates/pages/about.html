@@ -1,0 +1,85 @@
+<!-- pages/templates/pages/about.html -->
+{% extends 'pages/base.html' %}
+
+{% block title %}Миний тухай - Portfolio{% endblock %}
+
+{% block extra_css %}
+<style>
+    .about-section {
+        margin-bottom: 3rem;
+    }
+
+    .about-section h2 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 0.5rem;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .skill-item {
+        background: #f9f9f9;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+
+    .skill-name {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-bar {
+        height: 8px;
+        background: #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .skill-level {
+        height: 100%;
+        background: #3498db;
+        border-radius: 4px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Миний тухай</h1>
+
+<section class="about-section">
+    <h2>Танилцуулга</h2>
+    <p>{{ bio }}</p>
+</section>
+
+<section class="about-section">
+    <h2>Ур чадвар</h2>
+    <div class="skills-grid">
+        {% for skill in skills %}
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>{{ skill.name }}</span>
+                <span>{{ skill.level }}%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-level" style="width: {{ skill.level }}%;"></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="about-section">
+    <h2>Боловсрол</h2>
+    {% for edu in education %}
+    <div>
+        <strong>{{ edu.school }}</strong> - {{ edu.degree }} ({{ edu.year }})
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,122 @@
+<!-- pages/templates/pages/contact.html -->
+{% extends 'pages/base.html' %}
+
+{% block title %}Холбоо барих - Portfolio{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .contact-info h2 {
+        margin-bottom: 1rem;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background: #f9f9f9;
+        border-radius: 5px;
+    }
+
+    .contact-item span {
+        font-size: 1.5rem;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .social-link {
+        display: inline-block;
+        padding: 0.75rem 1.25rem;
+        background: #2c3e50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    .social-link:hover {
+        background: #3498db;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Холбоо барих</h1>
+
+<div class="contact-container">
+    <div class="contact-info">
+        <h2>Холбоо барих мэдээлэл</h2>
+
+        <div class="contact-item">
+            <span>📧</span>
+            <div>
+                <strong>Имэйл</strong><br>
+                <a href="mailto:{{ email }}">{{ email }}</a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <span>📱</span>
+            <div>
+                <strong>Утас</strong><br>
+                {{ phone }}
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <span>📍</span>
+            <div>
+                <strong>Байршил</strong><br>
+                {{ location }}
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="{{ social.github }}" class="social-link" target="_blank">GitHub</a>
+            <a href="{{ social.linkedin }}" class="social-link" target="_blank">LinkedIn</a>
+            <a href="{{ social.twitter }}" class="social-link" target="_blank">Twitter</a>
+        </div>
+    </div>
+
+    <div class="contact-form">
+        <h2>Мессеж илгээх</h2>
+        <form>
+            <div style="margin-bottom: 1rem;">
+                <label>Нэр</label><br>
+                <input type="text" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label>Имэйл</label><br>
+                <input type="email" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label>Мессеж</label><br>
+                <textarea rows="5"
+                    style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+            </div>
+            <button type="submit"
+                style="background: #3498db; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer;">
+                Илгээх
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
