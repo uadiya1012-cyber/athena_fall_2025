@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Project</title>
+    <link rel="stylesheet" href="{% static 'todos/css/styles.css' %}" />
+</head>
+
+<body>
+    <div class="BG-image">
+        <div class="container">
+            <header style="display:flex;justify-content:space-between;align-items:center;">
+                <h1>TODO</h1>
+                <button id="theme-toggle" aria-label="Toggle theme">Toggle theme</button>
+            </header>
+
+            <!-- Server-side form: posts to same URL and is handled in the view (SSR) -->
+            <form id="todo-form" method="post" action="">
+                {% csrf_token %}
+                <input type="text" name="title" id="todo-input" placeholder="Enter a new task" required />
+                <button type="submit">Add Task</button>
+            </form>
+
+            <ul id="todo-list">
+                {% for todo in todos %}
+                <li class="todo-item {% if todo.is_done %}done{% endif %}">
+                    <div class="todo-main">
+                        <strong>{{ todo.title }}</strong>
+                        <small> — {{ todo.created_at|date:"Y-m-d H:i" }}</small>
+                    </div>
+
+                    <div class="todo-actions">
+                        <!-- Toggle form (server-side) -->
+                        <form method="post" action="" style="display:inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="toggle_id" value="{{ todo.id }}" />
+                            <button type="submit">{% if todo.is_done %}Mark pending{% else %}Mark done{% endif
+                                %}</button>
+                        </form>
+
+                        <!-- Delete form (server-side) -->
+                        <form method="post" action="" style="display:inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="delete_id" value="{{ todo.id }}" />
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </li>
+                {% endif %}
+                <li>No todos yet — add one above.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="{% static 'todos/js/scripts.js' %}"></script>
+
+</html>
