@@ -1,0 +1,23 @@
+<!-- templates/blog/post_list.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blog</title>
+</head>
+
+<body>
+    <h1>Blog Posts</h1>
+
+    {% for post in posts %}
+    <article>
+        <h2><a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a></h2>
+        <p>By {{ post.author.name }} | {{ post.created_at|date:"M d, Y" }}</p>
+        <p>{{ post.content|truncatewords:30 }}</p>
+    </article>
+    {% empty %}
+    <p>No posts yet.</p>
+    {% endfor %}
+</body>
+
+</html>

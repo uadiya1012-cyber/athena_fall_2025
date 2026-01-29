@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}Нийтлэлүүд{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Нийтлэлүүд</h1>
+    <a href="{% url 'post_create' %}" class="btn btn-primary">+ Шинэ нийтлэл</a>
+</div>
+
+{% for post in posts %}
+<div class="card">
+    <h2 class="card-title">
+        <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+        {% if post.published %}
+        <span class="badge badge-success">Published</span>
+        {% else %}
+        <span class="badge badge-secondary">Draft</span>
+        {% endif %}
+    </h2>
+    <p class="card-meta">
+        {{ post.author }} • {{ post.created_at|date:"Y-m-d H:i" }} • {{ post.views }} үзэлт
+    </p>
+    <p>{{ post.content|truncatewords:30 }}</p>
+    <div style="margin-top: 1rem;">
+        <a href="#" class="btn btn-secondary">Засах</a>
+        <a href="#" class="btn btn-danger">Устгах</a>
+    </div>
+</div>
+{% empty %}
+<div class="alert alert-info">
+    Нийтлэл олдсонгүй. <a href="{% url 'post_create' %}">Шинэ нийтлэл үүсгэх</a>
+</div>
+{% endfor %}
+{% endblock %}

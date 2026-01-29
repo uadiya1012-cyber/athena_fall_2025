@@ -17,12 +17,11 @@ body {
     background-position: center;
     height: 100vh;
     width: 100%;
-    margin-bottom: 20px;
 }
 
 .container {
-    max-width: 618px;
-    height: 766px;
+    max-width: 600px;
+    height: 700px;
     margin: 0 auto;
     padding: 20px;
     background-color: #25273c;
@@ -42,6 +41,7 @@ form {
     display: flex;
     gap: 10px;
     margin-bottom: 1rem;
+    align-items: center;
 }
 
 input[type="text"] {
@@ -55,14 +55,24 @@ button {
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
-    background-color: #28a745;
+    /* background-color: #FFFFFF; */
     color: white;
     cursor: pointer;
+    background-color: none;
 }
 
-button:hover {
-    background-color: #218838;
+/* Hide the Add button until there's text in the input. When visible, use the .visible class */
+#todo-form button#add-btn {
+    display: none;
 }
+
+#todo-form button#add-btn.visible {
+    display: inline-block;
+}
+
+/* button:hover {
+    background-color: #218838;
+} */
 
 ul {
     list-style-type: none;
@@ -78,21 +88,50 @@ li {
     text-decoration: line-through;
 }
 
-/* Dark theme styles applied when body has .theme-dark */
+/* todo list харагдах хэсэг */
+.todo-actions {
+    width: 500px;
+    height: 51px;
+    background-color: #FFFFFF;
+}
 
+
+/* Dark theme styles applied when body has .theme-dark */
 
 body.theme-dark {
     background-color: #0f1720;
-    color: #e6eef6;
+    color: #FFFFFF;
 }
 
 body.theme-dark .container {
-    background-color: #0b1120;
+    background-color: #FFFFFF;
 }
 
 body.theme-dark button {
     background-color: #0ea5a4;
     color: #062022;
+}
+
+/* Theme toggle icon visibility: show moon in light, sun in dark */
+#theme-toggle img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.icon-sun {
+    display: none;
+    /* hide sun by default (light theme) */
+}
+
+body.theme-dark .icon-moon {
+    display: none;
+    /* hide moon when dark theme active */
+}
+
+body.theme-dark .icon-sun {
+    display: inline-block;
+    /* show sun when dark theme active */
 }
 
 li:last-child {

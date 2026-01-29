@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'blog/images/logo.svg' %}" type="image/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'post_list' %}" class="navbar-brand">Django Blog</a>
+            <div class="navbar-nav">
+                <a href="{% url 'post_list' %}">Нүүр</a>
+                <a href="{% url 'post_create' %}">+ Шинэ нийтлэл</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Django Blog. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{% static 'blog/js/app.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

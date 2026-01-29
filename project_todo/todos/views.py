@@ -5,14 +5,6 @@ from django.utils import timezone
 
 # Create your views here.
 def index(request):
-	"""Handle showing todos (GET) and creating/updating them (POST).
-
-	- POST with 'title' will create a new Todo (server-side, then redirect).
-	- POST with 'toggle_id' will toggle the is_done field for that Todo.
-	- POST with 'delete_id' will delete the Todo.
-
-	This keeps everything server-rendered (no JS API calls).
-	"""
 	if request.method == 'POST':
 		# Create new todo
 		if 'title' in request.POST:
