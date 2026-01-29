@@ -1,6 +1,4 @@
-/* Theme toggle using localStorage only.
-     No API calls. The todo form is submitted normally (SSR) and handled server-side.
-*/
+// Зөвхөн light Dark mode-г ажиллуулах хэсэг 
 document.addEventListener("DOMContentLoaded", function () {
     const toggle = document.getElementById("theme-toggle");
     const body = document.body;
@@ -13,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // initialize theme from localStorage (default: light)
+    // theme from localStorage
     const saved = localStorage.getItem('theme');
     applyTheme(saved || 'light');
 
@@ -24,5 +22,26 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem('theme', next);
             applyTheme(next);
         });
+    }
+
+    // Show the Add button only when there's text in the todo input
+    const todoInput = document.getElementById('todo-input');
+    const addBtn = document.getElementById('add-btn');
+
+    const updateAddBtn = () => {
+        if (!todoInput || !addBtn) return;
+        const hasText = todoInput.value.trim().length > 0;
+        if (hasText) {
+            addBtn.classList.add('visible');
+        } else {
+            addBtn.classList.remove('visible');
+        }
+    };
+
+    // initialize visibility on load
+    updateAddBtn();
+
+    if (todoInput) {
+        todoInput.addEventListener('input', updateAddBtn);
     }
 });

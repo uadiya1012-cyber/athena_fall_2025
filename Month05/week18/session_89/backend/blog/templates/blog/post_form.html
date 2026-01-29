@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<div class="card">
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="id_title">Гарчиг</label>
+            {{ form.title }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_content">Агуулга</label>
+            {{ form.content }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_author">Зохиогч</label>
+            {{ form.author }}
+        </div>
+
+        <div class="form-group form-check">
+            {{ form.published }}
+            <label for="id_published">Нийтлэх</label>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <button type="submit" class="btn btn-primary">Хадгалах</button>
+            <a href="{% url 'post_list' %}" class="btn btn-secondary">Цуцлах</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
