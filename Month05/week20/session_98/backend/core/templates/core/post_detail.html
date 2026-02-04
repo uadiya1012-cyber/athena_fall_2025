@@ -1,0 +1,89 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ post.title }} - BlogSSR{% endblock %}
+
+{% block content %}
+<article class="post-detail">
+    <!-- Header -->
+    <header class="post-header">
+        <span class="category-badge">{{ post.category.name }}</span>
+        <h1>{{ post.title }}</h1>
+        <div class="post-meta">
+            <span>✍️ {{ post.author.username }}</span>
+            <span>📅 {{ post.created_at|date:"Y оны m сарын d" }}</span>
+            <span>👁️ {{ post.views }} үзсэн</span>
+        </div>
+    </header>
+
+    <!-- Featured Image -->
+    {% if post.featured_image %}
+    <div class="post-image">
+        <img src="{{ post.featured_image }}" alt="{{ post.title }}">
+    </div>
+    {% endif %}
+
+    <!-- Content -->
+    <div class="post-content">
+        {{ post.content|linebreaks }}
+    </div>
+
+    <!-- Share Buttons (TypeScript handles) -->
+    <div class="share-buttons" id="share-section">
+        <span>Хуваалцах:</span>
+        <button class="share-btn" data-platform="twitter">🐦 Twitter</button>
+        <button class="share-btn" data-platform="facebook">📘 Facebook</button>
+        <button class="share-btn" data-platform="copy">📋 Link хуулах</button>
+    </div>
+</article>
+
+<!-- Comments Section -->
+<section class="comments-section">
+    <h3>💬 Сэтгэгдлүүд ({{ comments|length }})</h3>
+
+    <!-- Comment Form -->
+    <form id="comment-form" class="comment-form" data-post-slug="{{ post.slug }}">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" name="author_name" placeholder="Таны нэр" required>
+        </div>
+        <div class="form-group">
+            <input type="email" name="author_email" placeholder="Имэйл хаяг" required>
+        </div>
+        <div class="form-group">
+            <textarea name="content" rows="4" placeholder="Сэтгэгдэл бичих..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Илгээх</button>
+        <div id="comment-status"></div>
+    </form>
+
+    <!-- Comments List -->
+    <div class="comments-list" id="comments-list">
+        {% for comment in comments %}
+        <div class="comment">
+            <div class="comment-header">
+                <strong>{{ comment.author_name }}</strong>
+                <span class="comment-date">{{ comment.created_at|date:"Y-m-d H:i" }}</span>
+            </div>
+            <p>{{ comment.content }}</p>
+        </div>
+        {% empty %}
+        <p class="no-comments">Сэтгэгдэл байхгүй байна. Эхний сэтгэгдлээ үлдээнэ үү!</p>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Related Posts -->
+{% if related_posts %}
+<section class="related-posts">
+    <h3>📌 Холбоотой нийтлэлүүд</h3>
+    <div class="related-grid">
+        {% for related in related_posts %}
+        <a href="{% url 'post_detail' related.slug %}" class="related-card">
+            <h4>{{ related.title }}</h4>
+            <span>{{ related.created_at|date:"Y-m-d" }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+{% endblock %}

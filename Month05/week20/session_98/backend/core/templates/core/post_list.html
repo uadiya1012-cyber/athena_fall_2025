@@ -1,0 +1,89 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+{% if category %}
+{{ category.name }} - Нийтлэлүүд
+{% elif query %}
+"{{ query }}" хайлтын үр дүн
+{% else %}
+Бүх нийтлэлүүд
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section class="posts-section">
+    <h2>
+        {% if category %}
+        📂 {{ category.name }}
+        {% elif query %}
+        🔍 "{{ query }}" хайлтын үр дүн
+        {% else %}
+        📚 Бүх нийтлэлүүд
+        {% endif %}
+    </h2>
+
+    <div class="posts-grid" id="posts-container">
+        {% for post in posts %}
+        <article class="post-card" data-post-id="{{ post.id }}">
+
+            {% if post.featured_image %}
+            <img src="{{ post.featured_image }}" alt="{{ post.title }}" loading="lazy">
+            {% endif %}
+
+            <div class="card-body">
+                <span class="category">
+                    {{ post.category.name|default:"Ангилалгүй" }}
+                </span>
+
+                <h3>
+                    <a href="{% url 'post_detail' post.slug %}">
+                        {{ post.title }}
+                    </a>
+                </h3>
+
+                <p>
+                    {{ post.excerpt|truncatewords:18 }}
+                </p>
+
+                <div class="card-footer">
+                    <span class="author">
+                        ✍️ {{ post.author.username }}
+                    </span>
+                    <span class="views">
+                        👁️ {{ post.views }}
+                    </span>
+                </div>
+            </div>
+        </article>
+
+        {% empty %}
+        <p class="no-posts">
+            Нийтлэл олдсонгүй 😢
+        </p>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if page_obj and page_obj.has_other_pages %}
+    <nav class="pagination">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="page-link">
+            ← Өмнөх
+        </a>
+        {% endif %}
+
+        <span class="page-info">
+            Хуудас {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="page-link">
+            Дараах →
+        </a>
+        {% endif %}
+    </nav>
+    {% endif %}
+</section>
+
+{% endblock %}
