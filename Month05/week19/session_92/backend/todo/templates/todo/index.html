@@ -1,0 +1,66 @@
+{% extends 'todo/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h1>My Todo List</h1>
+
+    <!-- django messages -->
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="message {{message.tags}}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <!-- ADD TODO Form -->
+    <form action="{% url 'todo:add_todo' %}" class="input-form" method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="text" placeholder="What needs to be done?" autocomplete="off" autofocus>
+        <button type="submit" class="btn btn-primary">
+            Add
+        </button>
+    </form>
+    <!-- TODO List -->
+    <ul id="todoList">
+        {% for todo in todos %}
+        <li class="todo-item">
+            <div class="todo-content">
+                <!-- checkbox toggle -->
+                <form action="{% url 'todo:toggle_todo' todo.id %}" method="POST" class="toggle-form">
+                    {% csrf_token %}
+                    <button type="submit" class="toggle-btn">
+                        <div class="checkbox {% if todo.is_completed %} checked {% endif %}"></div>
+                    </button>
+                </form>
+                <!-- Todo Text clickable -->
+                <form action="{% url 'todo:toggle_todo' todo.id %}" method="POST" class="toggle-form" style="flex: 1;">
+                    {% csrf_token %}
+                    <button type="submit" class="toggle-btn" style="width: 100%; text-align: left;">
+                        <span class="todo-text {% if todo.is_completed %} completed {% endif %}">
+                            {{todo.text}}
+                        </span>
+                    </button>
+                </form>
+            </div>
+            <!-- Delete Button -->
+            <form action="{% url 'todo:delete_todo' todo.id %}" method="POST" class="delete-form">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-delete">
+                    Delete
+                </button>
+            </form>
+        </li>
+        {% empty %}
+        <li class="empty-state">
+            No todos yet. Add one above!
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}

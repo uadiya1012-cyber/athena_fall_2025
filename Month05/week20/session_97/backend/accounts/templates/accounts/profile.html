@@ -1,0 +1,61 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %} Профайл хуудас {% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2 class="auth-title">Миний Профайл</h2>
+
+    <!-- Avatar-->
+    <div class="profile-avatar">
+        {{ user.username.0|upper }}
+    </div>
+
+    <!-- Profile Info -->
+    <table class="profile-table">
+        <tr>
+            <th>Хэрэглэгчийн нэр</th>
+            <td>{{ user.username }}</td>
+        </tr>
+
+        <tr>
+            <th>И-Мэйл</th>
+            <td>{{ user.email|default:"Оруулаагүй" }}</td>
+        </tr>
+
+        <tr>
+            <th>Овог</th>
+            <td>{{ user.last_name|default:"Оруулаагүй" }}</td>
+        </tr>
+
+        <tr>
+            <th>Нэр</th>
+            <td>{{ user.first_name|default:"Оруулаагүй" }}</td>
+        </tr>
+
+        <tr>
+            <th>Бүртгүүлсэн</th>
+            <td>{{ user.date_joined|date:"Y-m H:i" }}</td>
+        </tr>
+
+        <tr>
+            <th>Сүүлд нэмсэн</th>
+            <td>{{ user.last_login|date:"Y-m H:i" }}</td>
+        </tr>
+
+
+        <tr>
+            <th>Статус</th>
+            <td>
+                {% if user.is_active %}
+                <span style="color: var(--success-color);">Идэвхтэй</span>
+                {% else %}
+                <span style="color: var(--danger-color);">Идэвхгүй</span>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+    <a href="{% url 'logout' %}" class="btn btn-danger btn-block">Гарах</a>
+</div>
+
+{% endblock %}

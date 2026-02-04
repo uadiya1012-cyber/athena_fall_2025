@@ -1,0 +1,41 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %} Нэвтрэх хуудас {% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2 class="auth-title">Нэвтрэх</h2>
+
+    <form method="POST" data-validate data-loading>
+        {% csrf_token %}
+
+        <!-- username -->
+        <div class="form-group">
+            <label class="form-label">Хэрэглэгчийн нэр</label>
+            {{ form.username }}
+        </div>
+
+        <!-- password -->
+        <div class="form-group">
+            <label class="form-label">Нууц үг</label>
+            <div class="password-wrapper">
+                {{ form.password }}
+                <button type="button" class="password-toggle">Харах</button>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+            Нэвтрэх
+        </button>
+    </form>
+    <div class="divider">
+        <span class="divider-text">эсвэл</span>
+    </div>
+
+    <p class="auth-footer">
+        Бүртгэлтэй юу? <a href="{% url 'register' %}">Бүртгүүлэх</a>
+    </p>
+
+</div>
+
+{% endblock %}

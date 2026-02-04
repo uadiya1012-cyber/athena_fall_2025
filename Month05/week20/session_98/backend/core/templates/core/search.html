@@ -1,0 +1,75 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+{% if query %}
+"{{ query }}" хайлтын үр дүн
+{% else %}
+Хайлт
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section class="posts-section">
+
+    <h2>
+        {% if query %}
+        🔍 "{{ query }}" хайлтын үр дүн
+        {% else %}
+        🔍 Хайлт
+        {% endif %}
+    </h2>
+
+    {% if query %}
+    <p class="search-info">
+        <strong>{{ posts|length }}</strong> үр дүн олдлоо
+    </p>
+    {% endif %}
+
+    <div class="posts-grid">
+        {% for post in posts %}
+        <article class="post-card">
+
+            {% if post.featured_image %}
+            <img src="{{ post.featured_image }}" alt="{{ post.title }}" loading="lazy">
+            {% endif %}
+
+            <div class="card-body">
+                <span class="category">
+                    {{ post.category.name|default:"Ангилалгүй" }}
+                </span>
+
+                <h3>
+                    <a href="{% url 'post_detail' post.slug %}">
+                        {{ post.title }}
+                    </a>
+                </h3>
+
+                <p>
+                    {{ post.excerpt|truncatewords:18 }}
+                </p>
+
+                <div class="card-footer">
+                    <span class="author">
+                        ✍️ {{ post.author.username }}
+                    </span>
+                    <span class="views">
+                        👁️ {{ post.views }}
+                    </span>
+                </div>
+            </div>
+        </article>
+
+        {% empty %}
+        <div class="no-posts">
+            <p>😢 "{{ query }}" гэсэн хайлтаар үр дүн олдсонгүй</p>
+            <a href="{% url 'home' %}" class="btn btn-primary">
+                Нүүр хуудас руу буцах
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+{% endblock %}

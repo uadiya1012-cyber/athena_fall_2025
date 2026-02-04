@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Django + TypeScript SSR{% endblock %}</title>
+
+    {% load static %}
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" class="logo">📝 BlogSSR</a>
+
+            <div class="nav-links">
+                <a href="{% url 'home' %}">Нүүр</a>
+                {% for cat in categories %}
+                <a href="{% url 'category' cat.slug %}">{{ cat.name }}</a>
+                {% endfor %}
+            </div>
+
+            <form action="{% url 'search' %}" method="GET" class="search-form">
+                <input type="text" name="q" placeholder="Хайх..." value="{{ query|default:'' }}">
+                <button type="submit">🔍</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Django + TypeScript SSR Project</p>
+        </div>
+    </footer>
+
+    <!-- TypeScript compiled JS -->
+    <script type="module" src="{% static 'main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>
