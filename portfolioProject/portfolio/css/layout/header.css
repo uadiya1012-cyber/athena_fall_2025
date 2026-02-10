@@ -4,13 +4,18 @@
     top: 0;
     z-index: 100;
     background-color: var(--light);
+    padding: 8px 0;
+    /* give a little vertical breathing room */
 }
 
 .nav {
-    height: 80px;
+    height: 88px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    /* allow items to wrap when space is tight */
 }
 
 
@@ -19,6 +24,7 @@
     display: flex;
     gap: 32px;
     list-style: none;
+    align-items: center;
 }
 
 .nav__link {
@@ -39,11 +45,57 @@
     font-size: 22px;
     font-weight: 700;
     color: var(--dark);
+    gap: 12px;
 }
 
 .nav__logo img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-top: 5px;
+    margin: 0;
+    /* center properly with align-items */
+}
+
+/* Responsive tweaks to avoid cramped header */
+@media (max-width: 1024px) {
+    .nav {
+        height: 72px;
+    }
+
+    .nav__menu {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        justify-content: center;
+        padding: 0 12px;
+    }
+
+    .nav__menu {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn {
+        order: 3;
+        width: 100%;
+        max-width: 240px;
+    }
+
+    .nav__logo {
+        order: 1;
+    }
+}
+
+@media (max-width: 420px) {
+    .nav__menu {
+        gap: 8px;
+    }
+
+    .nav__link {
+        font-size: 14px;
+    }
 }

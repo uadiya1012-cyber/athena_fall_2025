@@ -1,0 +1,209 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styles */
+.header {
+  width: 1200px;
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  font-style: bold;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+/* Auth Buttons */
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+.auth-button1 {
+  width: 106px;
+  height: 46px;
+  background-color: #FDD6EB;
+  color: black;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.auth-button2 {
+  width: 143px;
+  height: 46px;
+  background-color: #FF4BAC;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+/* Hero Section Styles  */
+.hero {
+  width: 1200px;
+  height: 456px;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FDD6EB;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+/* Hero Content Left */
+.hero-content-left {
+  width: 50%;
+  padding: 40px;
+}
+
+.hero-top {
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.hero-middle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.auth-button3 {
+  width: 249px;
+  height: 46px;
+  border-radius: 999px;
+  background-color: #FF4BAC;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.auth-button4 {
+  width: 249px;
+  height: 46px;
+  border-radius: 999px;
+  background-color: #FFFFFF;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+span {
+  color: #212121;
+  font-weight: 700;
+}
+
+/* Hero Content Right */
+.hero-content-right {
+  width: 50%;
+  position: relative;
+}
+
+.blue-ellipse {
+  position: absolute;
+  bottom: -50px;
+  left: 230px;
+  width: 456px;
+  height: 456px;
+  background-color: blue;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.book-image {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  top: -190px;
+  left: 80px;
+  z-index: 2;
+}
+
+.pink-ellipse {
+  position: absolute;
+  top: 120px;
+  left: 40px;
+  width: 276px;
+  height: 276px;
+  background-color: pink;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+
+/* Book List Styles */
+.book-list {
+  width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.book-list-header {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-list-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #212121;
+}
+
+.book-list-header button {
+  width: 112px;
+  height: 46px;
+  background-color: #FDD6EB;
+  color: black;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.book-list-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
