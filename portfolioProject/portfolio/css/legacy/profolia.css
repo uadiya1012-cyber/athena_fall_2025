@@ -1,3 +1,12 @@
+/* ===== Profolia (legacy styles extracted) =====
+   This file contains legacy Profolia rules that were
+   previously merged into `css/style.css`. They were
+   moved here to keep the main stylesheet focused on the
+   active layout. Import this file only if you need the
+   original Profolia styles for reference or to restore
+   the legacy layout.
+*/
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,29 +14,33 @@
 }
 
 main {
-    width: 1440px;
-    height: 100vh;
+    max-width: 1440px;
+    width: 100%;
+    min-height: 100vh;
     margin: 0 auto;
     background-color: #FFFFFF;
 }
 
 header {
-    width: 1440px;
-    height: 165pxpx;
+    max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
-    padding: 40px 40px;
+    padding: 20px 24px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .frame1 {
-    width: 1298px;
-    height: 86px;
+    max-width: 1298px;
+    width: 100%;
+    height: auto;
     border-radius: 50px;
     background-color: #171717;
     display: flex;
     justify-content: space-between;
-    padding: 10px 10px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .frame1 ul {
@@ -112,27 +125,31 @@ header {
 
 /* Эхний section */
 .container1 {
-    width: 1440px;
-    height: 846px;
-    gap: 71px;
+    width: 100%;
+    max-width: 1440px;
+    height: auto;
+    gap: 40px;
     display: flex;
     position: relative;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0 auto;
     opacity: 1;
+    align-items: flex-start;
+    padding: 40px 24px;
+    box-sizing: border-box;
 }
 
 
 .frame5 {
-    width: 913px;
-    height: 266px;
+    width: 100%;
+    max-width: 913px;
+    height: auto;
     opacity: 1;
     display: flex;
-    position: absolute;
-    top: 37px;
-    left: 264px;
-    right: 263px;
-    bottom: 543px;
+    position: relative;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
 }
 
 .frame5 #image1 {
@@ -149,8 +166,8 @@ header {
 }
 
 .frame4 {
-    width: 913;
-    height: 266;
+    width: 100%;
+    height: auto;
     gap: 10px;
     opacity: 1;
 }
@@ -191,16 +208,17 @@ header {
 }
 
 .text1 {
-    width: 913px;
-    height: 192px;
+    width: 100%;
+    max-width: 913px;
+    height: auto;
     opacity: 1;
-    font-family: Urbanist;
-    font-size: 95.57px;
-    line-height: 100%;
+    font-family: Urbanist, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-size: clamp(28px, 5vw, 96px);
+    line-height: 1;
     text-align: center;
-    display: grid;
-    position: absolute;
-    top: 74px;
+    display: block;
+    position: relative;
+    margin-top: 24px;
 }
 
 .text1 span {
@@ -215,15 +233,14 @@ header {
 }
 
 .frameLeft {
-    width: 328px;
-    height: 138px;
-    gap: 24px;
+    width: auto;
+    max-width: 328px;
+    height: auto;
+    gap: 16px;
     opacity: 1;
     display: flex;
-    position: absolute;
-    left: 71px;
-    top: 373px;
-    margin-top: 250px;
+    position: relative;
+    margin-top: 16px;
 }
 
 .frameLeft #dot2 {
@@ -243,15 +260,14 @@ header {
 }
 
 .frameRight {
-    width: 169px;
-    height: 125px;
-    gap: 21px;
+    width: auto;
+    max-width: 169px;
+    height: auto;
+    gap: 12px;
     opacity: 1;
     display: block;
-    position: absolute;
-    top: 380px;
-    right: 71px;
-    margin-top: 220px;
+    position: relative;
+    margin-top: 16px;
 }
 
 .frame6 {
@@ -296,27 +312,28 @@ header {
 
 .frameImg {
     display: flex;
-    position: absolute;
-    top: 710px;
-    right: 243.8px;
-    left: 243.8px;
-    margin-top: 180px;
+    position: relative;
+    margin: 24px auto 0;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 
 .frameProfile {
-    position: absolute;
-    width: 430px;
-    height: 636px;
+    position: relative;
+    width: clamp(180px, 30vw, 430px);
+    height: auto;
     left: 50%;
-    bottom: 0;
     transform: translateX(-50%);
 }
 
 .ellipce2 {
     position: absolute;
-    width: 811.78px;
-    height: 405.89px;
+    width: min(90%, 812px);
+    height: auto;
+    padding-top: 40%;
+    /* maintain an approximate aspect */
     transform: translateX(-50%);
     background-color: #fd853a;
     border-radius: 6000px 6000px 0 0;
@@ -326,37 +343,40 @@ header {
 
 
 .frame56 {
-    width: 367px;
-    height: 82px;
+    width: 100%;
+    max-width: 367px;
+    height: auto;
     gap: 10px;
     opacity: 1;
     border-radius: 50px;
     border-width: 2px;
     padding: 10px;
     display: flex;
+    box-sizing: border-box;
 }
 
 
 .buttonframe {
     display: flex;
-    height: 82px;
-    width: 367px;
+    height: auto;
+    width: 100%;
+    max-width: 367px;
     z-index: 1000;
-    margin-left: 280px;
-    margin-top: -70px;
+    margin: 0;
     border: 1px solid white;
     border-radius: 60px;
     gap: 10px;
+    justify-content: center;
 }
 
 .frame30 {
-    width: 208px;
+    width: 50%;
     height: 62px;
     background-color: #fd853a;
     border: 1px solid white;
     border-radius: 60px;
-    margin-top: 10px;
-    margin-left: 10px;
+    margin: 10px;
+    box-sizing: border-box;
 }
 
 .frame30 button {
@@ -370,14 +390,14 @@ header {
 
 
 .frame31 {
-    width: 208px;
+    width: 50%;
     height: 62px;
     color: white;
     background-color: #fd853a;
     border: 1px solid white;
     border-radius: 60px;
-    margin-top: 10px;
-    margin-right: 10px;
+    margin: 10px;
+    box-sizing: border-box;
 }
 
 .frame31 button {
@@ -393,8 +413,80 @@ header {
 /* хоёр дахь section */
 .container2 {
     display: flex;
-    width: 1440px;
-    height: 878px;
-    margin: 126px auto;
+    width: 100%;
+    max-width: 1440px;
+    height: auto;
+    margin: 60px auto;
     border-radius: 50px;
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .frame1 ul {
+        gap: 8px;
+    }
+
+    .frame3 h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container1 {
+        flex-direction: column;
+        align-items: center;
+        padding: 24px;
+    }
+
+    .frame5,
+    .frameImg,
+    .frameLeft,
+    .frameRight {
+        position: static;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .group3 #image2 {
+        left: auto;
+        position: relative;
+    }
+
+    .text1 {
+        text-align: left;
+        font-size: 32px;
+        padding: 0 8px;
+    }
+
+    .buttonframe {
+        margin-top: 12px;
+    }
+
+    .frameProfile {
+        width: 220px;
+        transform: none;
+        left: auto;
+    }
+
+    .ellipce2 {
+        display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .text1 {
+        font-size: 24px;
+    }
+
+    .frame30 button,
+    .frame31 button {
+        font-size: 16px;
+    }
+
+    .frame1 li {
+        font-size: 16px;
+        padding: 10px 12px;
+    }
 }

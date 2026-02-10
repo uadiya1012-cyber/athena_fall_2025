@@ -1,0 +1,4 @@
+asgiref==3.11.1
+django>=5.0,<6.0
+sqlparse==0.5.5
+django-cors-headers
