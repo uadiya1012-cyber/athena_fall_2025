@@ -1,31 +1,16 @@
-import { useEffect, useState } from "react";
-import api from "./api";
+import AdvancedTasksLab from "./components/AdvancedTasksLab";
 
-type Task = {
-    id: number;
-    title: string;
-    status: string;
-    priority: number;
-};
+interface Props {
+    onLogout: () => void;
+}
 
-export const TasksPage = ({ onLogout }: { onLogout: () => void }) => {
-    const [tasks, setTasks] = useState<Task[]>([]);
-
-    useEffect(() => {
-        api.get('tasks/').then(res => setTasks(res.data));
-    }, []);
+export const TasksPage = ({ onLogout }: Props) => {
 
     return (
         <div>
             <h2>Tasks</h2>
             <button onClick={onLogout}>Logout</button>
-            {
-                tasks && tasks.map(task => {
-                    return <div key={task.id}>
-                        {task.title} - {task.status} - Priority: {task.priority}
-                    </div>
-                })
-            }
+            <AdvancedTasksLab />
         </div>
     )
 }
