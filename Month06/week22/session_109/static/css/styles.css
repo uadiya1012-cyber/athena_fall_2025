@@ -1,0 +1,32 @@
+.htmx-indicator {
+  display: none;
+}
+
+.htmx-request .htmx-indicator {
+  display: inline-block;
+}
+
+table input {
+  margin-bottom: 0;
+  padding: 0.4rem 0.6rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.actions button {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+.flash {
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  background: var(--pico-primary-background);
+  color: var(--pico--primary--inverse);
+  margin-bottom: 1rem;
+}

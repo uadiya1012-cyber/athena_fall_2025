@@ -1,0 +1,55 @@
+{% load static %}
+
+<section>
+  <form
+    id="expense-form"
+    method="post"
+    hx-post="{% url 'create_expense' %}"
+    hx-target="#expense-container"
+    hx-swap="outerHTML"
+  >
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Add</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Amount</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for expense in expenses %}
+      <tr id="expense-{{ expense.pk }}">
+        <td>{{ expense.date }}</td>
+        <td>{{ expense.title }}</td>
+        <td>{{ expense.amount }}</td>
+        <td>
+          <button
+            hx-get="{% url 'edit_expense' expense.pk %}"
+            hx-target="#expense-{{ expense.pk }}"
+            hx-swap="outerHTML"
+          >
+            Edit
+          </button>
+          <button
+            hx-post="{% url 'delete_expense' expense.pk %}"
+            hx-confirm="Are you sure?"
+            hx-target="#expense-container"
+            hx-swap="outerHTML"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="4">No expenses yet.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>

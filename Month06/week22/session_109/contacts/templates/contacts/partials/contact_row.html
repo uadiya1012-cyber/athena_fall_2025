@@ -1,0 +1,24 @@
+<tr id="contact-{{ contact.pk }}">
+    <td>{{ contact.name }}</td>
+    <td>{{ contact.email }}</td>
+    <td>{{ contact.phone|default:"-" }}</td>
+    <td>
+        <div class="actions">
+            <button class="outline"
+                hx-get="{% url 'edit_contact' contact.pk %}"
+                hx-target="#contact-{{ contact.pk }}"
+                hx-swap="outerHTML"
+                >
+                Edit
+            </button>
+            <button class="outline secondary"
+                hx-delete="{% url 'delete_contact' contact.pk %}"
+                hx-target="#contact-{{ contact.pk }}"
+                hx-swap="outerHTML swap:0.3s"
+                hx-confirm="Delete {{ contact.name }}?"
+            >
+                Delete
+            </button>
+        </div>
+    </td>
+</tr>

@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- pico css -->
+    <link rel="stylesheet" href="{% static 'css/pico.min.css' %}" />
+    <!-- htmx -->
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+  </head>
+  <body>
+    {% block content %}
+    <h1>Welcome to the User Management System</h1>
+    <p>Please select an option from the menu.</p>
+    <ul>
+      <li><a href="{% url 'login' %}">Login</a></li>
+      <li><a href="{% url 'register' %}">Register</a></li>
+    </ul>
+    {% endblock %}
+  </body>
+</html>
