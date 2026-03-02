@@ -1,0 +1,49 @@
+{% load static %}
+
+<div class="category-controls">
+  <label for="category-filter">Filter by category:</label>
+  <select
+    id="category-filter"
+    name="category"
+    hx-get="/"
+    hx-trigger="change"
+    hx-include="#category-filter"
+    hx-target="#expense-container"
+    hx-swap="outerHTML"
+  >
+    <option value="">All</option>
+    {% for cat in categories %}
+    <option
+      value="{{ cat.id }}"
+      {%
+      if
+      selected_category
+      and
+      selected_category.id=""
+      ="cat.id"
+      %}selected{%
+      endif
+      %}
+    >
+      {{ cat.name }}
+    </option>
+    {% endfor %}
+  </select>
+
+  <div style="display: inline-block; margin-left: 1rem">
+    <form
+      id="category-add-form"
+      method="post"
+      hx-post="{% url 'create_category' %}"
+      hx-target="#category-list"
+      hx-swap="outerHTML"
+    >
+      {% csrf_token %} {{ category_form.name }}
+      <button type="submit">Add category</button>
+    </form>
+  </div>
+
+  {% if message %}
+  <div class="message">{{ message }}</div>
+  {% endif %}
+</div>

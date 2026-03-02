@@ -1,0 +1,19 @@
+{% load static %}
+
+<form
+  method="post"
+  hx-post="{% url 'update_category' category.pk %}"
+  hx-target="#category-list"
+  hx-swap="outerHTML"
+>
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Save</button>
+  <button
+    type="button"
+    hx-get="/"
+    hx-target="#expense-container"
+    hx-swap="outerHTML"
+  >
+    Cancel
+  </button>
+</form>

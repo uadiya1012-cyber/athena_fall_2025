@@ -1,0 +1,47 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="{% static 'css/pico.min.css' %}" />
+
+    <!-- HTMX -->
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <main class="container">
+      <hgroup>
+        <h1>Expense Tracker</h1>
+        <p>
+          Simple CRUD Expense Tracker Application using Django, HTMX, and
+          PicoCSS
+        </p>
+      </hgroup>
+
+      <div id="controls" style="margin-bottom: 1rem">
+        <div id="category-list">{% include 'expense/category_list.html' %}</div>
+      </div>
+
+      <div id="expense-container">
+        {% include 'expense/partials/expense_form_partial.html' %}
+      </div>
+    </main>
+
+    <script>
+      document.body.addEventListener("htmx:configRequest", function (evt) {
+        const token = document.querySelector("[name=csrfmiddlewaretoken]");
+        if (token) {
+          evt.detail.headers["X-CSRFToken"] = token.value;
+        }
+      });
+    </script>
+  </body>
+</html>

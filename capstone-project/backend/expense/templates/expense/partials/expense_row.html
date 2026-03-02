@@ -1,0 +1,23 @@
+{% load static %}
+
+<tr id="expense-{{ expense.pk }}">
+  <td>{{ form.date }}</td>
+  <td>{{ form.title }}</td>
+  <td>{{ form.amount }}</td>
+  <td>
+    <button
+      hx-post="{% url 'update_expense' expense.pk %}"
+      hx-target="#expense-container"
+      hx-swap="outerHTML"
+    >
+      Save
+    </button>
+    <button
+      hx-get="{% url 'expense_list' %}"
+      hx-target="#expense-container"
+      hx-swap="outerHTML"
+    >
+      Cancel
+    </button>
+  </td>
+</tr>

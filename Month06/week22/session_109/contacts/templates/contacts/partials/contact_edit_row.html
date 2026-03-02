@@ -1,0 +1,28 @@
+<tr id="contact-{{ contact.pk }}">
+  {% csrf_token %}
+  <td>{{ form.name }}</td>
+  <td>{{ form.email }}</td>
+  <td>{{ form.phone }}</td>
+  <td>
+    <div class="actions">
+      <button
+        type="button"
+        hx-post="{% url 'update_contact' contact.pk %}"
+        hx-target="#contact-{{ contact.pk }}"
+        hx-swap="outerHTML"
+        hx-include="#contact-{{ contact.pk }}"
+      >
+        Save
+      </button>
+      <button
+        type="button"
+        class="outline secondary"
+        hx-get="{% url 'contact_list' %}"
+        hx-target="#contact-container"
+        hx-swap="innerHTML"
+      >
+        Cancel
+      </button>
+    </div>
+  </td>
+</tr>
