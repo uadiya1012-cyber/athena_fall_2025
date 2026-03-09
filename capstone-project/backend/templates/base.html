@@ -1,23 +1,36 @@
 {% load static %}
+
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- pico css -->
     <link rel="stylesheet" href="{% static 'css/pico.min.css' %}" />
-    <!-- htmx -->
-    <script src="{% static 'js/htmx.min.js' %}"></script>
+    <!-- pico js -->
+    <script src="{% static 'js/pico.min.js' %}"></script>
   </head>
   <body>
-    {% block content %}
-    <h1>Welcome to the User Management System</h1>
-    <p>Please select an option from the menu.</p>
-    <ul>
-      <li><a href="{% url 'login' %}">Login</a></li>
-      <li><a href="{% url 'register' %}">Register</a></li>
-    </ul>
-    {% endblock %}
+    <nav class="navbar">
+      <h2>My Company Apps</h2>
+      <div class="nav-links">
+        {% if user.is_authenticated %}
+        <span>Welcome, {{ user.username }} ({{ user.get_role_display }})</span>
+        <a href="{% url 'user_dashboard' %}">Dashboard</a>
+        {% if user.role == 'MANAGER' or user.role == 'ADMIN' %}
+        <a href="{% url 'moderator_dashboard' %}">Manager Area</a>
+        {% endif %}
+        <form action="{% url 'logout' %}" method="post" style="display: inline">
+          {% csrf_token %}
+          <button type="submit">Logout</button>
+        </form>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+      </div>
+    </nav>
+    <div class="container">{% block content %} {% endblock %}</div>
   </body>
 </html>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<h1>HTMX Demo</h1>
+
+<!-- get -->
+<button hx-get="/hello/" hx-target="#hello-result">Get greeting</button>
+<div id="hello-result"></div>
+<hr />
+
+<!-- post -->
+<form hx-post="/add/" hx-target="#items" hx-swap="beforeend">
+  {% csrf_token %}
+  <input type="text" name="name" placeholder="Item name" />
+  <button type="submit">Add Item</button>
+</form>
+<hr />
+
+<h2>Items</h2>
+<div id="items">
+  {% for item in items %} {% include '_item.html' %} {% endfor %}
+</div>
+
+{% endblock %}

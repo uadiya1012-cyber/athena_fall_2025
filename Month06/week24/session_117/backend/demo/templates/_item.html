@@ -1,0 +1,11 @@
+<div id="item-{{ item.id }}">
+  {{ item.name }}
+  <button
+    hx-delete="/delete/{{ item.id }}/"
+    hx-target="#item-{{ item.id }}"
+    hx-swap="outerHTML"
+    hx-confirm="Устгах уу?"
+  >
+    X
+  </button>
+</div>
