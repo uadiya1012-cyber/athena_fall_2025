@@ -5,18 +5,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Portfolio</title>
-
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/css/style.css" />
 </head>
 
 <body>
+    <!-- Three.js Canvas Background -->
+    <canvas id="bg"></canvas>
 
     <header class="header">
         <nav class="nav container">
 
             <!-- Logo -->
             <a href="#" class="nav__logo">
-                <img src="./assets/images/logo.svg" alt="logo">
+                <img src="/assets/images/logo.svg" alt="logo" onerror="this.onerror=null; this.src=''; this.alt='UADIYA'">
                 UADIYA
             </a>
 
@@ -66,7 +68,7 @@
                 <!-- Right image -->
                 <div class="hero__image-wrapper">
                     <div class="hero__shape"></div>
-                    <img src="./assets/images/profile.png" alt="Adiya portrait" />
+                    <img src="/assets/images/profile.png" alt="Adiya portrait" onerror="this.onerror=null; this.src=''; this.alt='Profile Picture'" />
                 </div>
 
             </div>
@@ -91,19 +93,19 @@
                 <div class="services__list">
 
                     <article class="service-card">
-                        <img src="./assets/images/service-uiux.png" alt="UI UX Design">
+                        <img src="/assets/images/service-uiux.png" alt="UI UX Design" onerror="this.onerror=null; this.src=''">
                         <h3 class="service-card__title">UI / UX Design</h3>
                         <button class="service-card__btn">↗</button>
                     </article>
 
                     <article class="service-card">
-                        <img src="./assets/images/service-web.png" alt="Web Design">
+                        <img src="/assets/images/service-web.png" alt="Web Design" onerror="this.onerror=null; this.src=''">
                         <h3 class="service-card__title">Web Design</h3>
                         <button class="service-card__btn">↗</button>
                     </article>
 
                     <article class="service-card">
-                        <img src="./assets/images/service-landing.png" alt="Landing Page">
+                        <img src="/assets/images/service-landing.png" alt="Landing Page" onerror="this.onerror=null; this.src=''">
                         <h3 class="service-card__title">Landing Page</h3>
                         <button class="service-card__btn">↗</button>
                     </article>
@@ -125,7 +127,7 @@
                     <!-- Image/Visual Column -->
                     <div class="about__visual">
                         <div class="about__glass-card">
-                            <img src="./assets/images/profile.png" alt="Adiya Workspace" class="about__img">
+                            <img src="/assets/images/profile.png" alt="Adiya Workspace" class="about__img" onerror="this.onerror=null; this.src=''">
                             <div class="about__badge">
                                 <span>10+</span> Years Exp
                             </div>
@@ -264,7 +266,8 @@
         </div>
     </footer>
 
-    <script src="./js/3d-tilt.js"></script>
+    <script src="/js/3d-tilt.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>
