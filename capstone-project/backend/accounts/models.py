@@ -11,4 +11,5 @@ class CustomUser(AbstractUser):
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='USER')
 
     def __str__(self):
-        return f"{self.username} ({self.get_role_display()})"
+        # Hide role in string representation to avoid showing it in logs/UI
+        return f"{self.username}"
