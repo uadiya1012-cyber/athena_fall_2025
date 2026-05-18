@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Тусгай хүнийхээ төрсөн өдрийн мэнд хүргэх гоёмсог мэндчилгээ" />
+  <title>🎂 Төрсөн өдрийн мэнд хүргэе!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Floating orbs background -->
+  <div class="bg-container" id="bg-container"></div>
+
+  <!-- Stars -->
+  <div class="stars" id="stars"></div>
+
+  <!-- Main content -->
+  <main class="main-content" id="main-content">
+
+    <!-- Gift box section -->
+    <div class="gift-scene" id="gift-scene">
+      <p class="tap-hint" id="tap-hint">✨ Дарж нээгээрэй ✨</p>
+      <div class="gift-box" id="gift-box">
+        <div class="gift-lid" id="gift-lid">
+          <div class="lid-ribbon"></div>
+        </div>
+        <div class="gift-body">
+          <div class="body-ribbon-h"></div>
+          <div class="body-ribbon-v"></div>
+        </div>
+        <div class="gift-glow"></div>
+      </div>
+    </div>
+
+    <!-- Message card (hidden initially) -->
+    <div class="message-card" id="message-card">
+      <div class="card-inner">
+        <div class="emoji-row">🎉🎂🎊</div>
+        <h1 class="wish-title">Баянжавзан даа<br />төрсөн өдрийн мэнд хүргэе!</h1>
+        <div class="divider"></div>
+        <p class="wish-message">
+          Оюутны хамгийн дотно жилүүдийг чамтай хамт өнгөрөөсөндөө би үнэхээр баяртай байдаг. 🌸<br /><br />
+          Өнөөдөр чиний онцгой өдөр — Баянжавзан, чи ямар ч нөхцөлд хүч чадалтай,
+          гэрэлтэй байдаг хүн шүү. Хэцүү бүхэн түр зуурын зүйл бөгөөд удахгүй өнгөрөөд, сайхан бүхэн ирж чамайг аз
+          жаргалаар дүүргэх болно. Энэ жил чиний бүх мөрөөдөл биелж,
+          зам мөр нь тодорч, инээмсэглэл нь хэзээ ч арилахгүй байгаасай! 💫<br /><br />
+          Чамтай найз болсондоо баяртай байна. ❤️
+        </p>
+        <div class="wish-from">— Адъяахүүгийн зүрхнээс 🤍</div>
+        <button class="replay-btn" id="replay-btn">🎊 Дахин тоглуулах</button>
+      </div>
+      <!-- Floating cake emojis -->
+      <span class="float-emoji" style="--delay:0s; --x: 10%; --dur: 6s;">🎂</span>
+      <span class="float-emoji" style="--delay:1.2s; --x: 80%; --dur: 7s;">🎈</span>
+      <span class="float-emoji" style="--delay:0.5s; --x: 55%; --dur: 5.5s;">🌸</span>
+      <span class="float-emoji" style="--delay:2s; --x: 30%; --dur: 8s;">🎁</span>
+      <span class="float-emoji" style="--delay:1.7s; --x: 70%; --dur: 6.5s;">💫</span>
+    </div>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>

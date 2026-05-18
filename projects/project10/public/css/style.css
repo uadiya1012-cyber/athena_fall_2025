@@ -8,6 +8,8 @@
 
 @import "./components/button.css";
 @import "./components/card.css";
+@import "./components/weather.css";
+@import "./components/cv-modal.css";
 
 @import "./layout/services.css";
 @import "./layout/about.css";

@@ -1,5 +1,11 @@
 import "./style.css";
 import * as THREE from "three";
+import { initWeatherWidget } from "./weather.js";
+import { initCVModal } from "./cv.js";
+
+// Initialize UI components
+initWeatherWidget();
+initCVModal();
 
 // 1. SCENE SETUP
 const scene = new THREE.Scene();
@@ -9,7 +15,7 @@ const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
   0.1,
-  1000
+  1000,
 );
 
 const renderer = new THREE.WebGLRenderer({
@@ -73,8 +79,8 @@ for (let i = 0; i < particlesCount * 3; i++) {
 }
 
 particlesGeometry.setAttribute(
-  'position',
-  new THREE.BufferAttribute(posArray, 3)
+  "position",
+  new THREE.BufferAttribute(posArray, 3),
 );
 const particlesMaterial = new THREE.PointsMaterial({
   size: 0.15,
@@ -97,7 +103,6 @@ const blueLight = new THREE.PointLight(0x0055ff, 3);
 blueLight.position.set(-10, -10, -10);
 scene.add(blueLight);
 
-
 // 5. SCROLL ANIMATION EVENT
 function moveCamera() {
   // Get how far the user has scrolled
@@ -106,7 +111,7 @@ function moveCamera() {
   // Rotate objects based on scroll
   cube.rotation.y += 0.05;
   cube.rotation.x += 0.05;
-  
+
   torusKnot.rotation.x += 0.01;
   torusKnot.rotation.y += 0.02;
 
@@ -120,13 +125,12 @@ function moveCamera() {
 document.body.onscroll = moveCamera;
 moveCamera(); // Call once to set initial position
 
-
-// 6. ANIMATION LOOP 
-const clock = new THREE.Clock(); // for smooth particle animation
+// 6. ANIMATION LOOP
+const timer = new THREE.Timer(); // for smooth particle animation
 
 function animate() {
   requestAnimationFrame(animate);
-  const elapsedTime = clock.getElapsedTime();
+  const elapsedTime = timer.getElapsed();
 
   // Gentle continuous rotation
   torusKnot.rotation.x += 0.002;
@@ -137,7 +141,7 @@ function animate() {
 
   // Float the particles slowly
   particlesMesh.rotation.y = elapsedTime * 0.05;
-  
+
   // Rotate the entire scene extremely slowly to feel dynamic
   scene.rotation.y += 0.0005;
 
